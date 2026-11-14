@@ -1,0 +1,2410 @@
+# Python Questions Part 1 - q-001 to q-170
+# AUTO-GENERATED - Requires subject-expert review before public launch
+
+- id: "q-001"
+  concept_slug: "variables-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.6
+  stem: "What is the output of the following code?\n```python\nx = 5\ny = x\nx = 10\nprint(y)\n```"
+  options:
+    A: "5"
+    B: "10"
+    C: "Error"
+    D: "None"
+  correct: "A"
+  explanation: "y was assigned the value 5. Reassigning x does not affect y because integers are immutable and y holds a copy of the value."
+  misconception_tags:
+    B: "misc-001"
+
+- id: "q-002"
+  concept_slug: "variables-basics"
+  type: "multiple_choice"
+  difficulty: 0.15
+  discrimination: 0.5
+  stem: "Which of the following is a valid Python variable name?"
+  options:
+    A: "2count"
+    B: "_my_var"
+    C: "my-var"
+    D: "class"
+  correct: "B"
+  explanation: "Variable names must start with a letter or underscore, can contain letters, digits, and underscores, and cannot be Python keywords. '2count' starts with a digit, 'my-var' contains a hyphen, and 'class' is a reserved keyword."
+
+- id: "q-003"
+  concept_slug: "variables-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.6
+  stem: "What is the output of the following code?\n```python\na = b = c = 10\nb = 20\nprint(a, b, c)\n```"
+  options:
+    A: "10 20 10"
+    B: "20 20 20"
+    C: "10 20 20"
+    D: "10 10 10"
+  correct: "A"
+  explanation: "a = b = c = 10 assigns 10 to all three variables. Then b = 20 only changes b. Since integers are immutable, a and c remain 10."
+  misconception_tags:
+    B: "misc-001"
+
+- id: "q-004"
+  concept_slug: "variables-basics"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.65
+  stem: "What is the output of the following code?\n```python\nx = 7\ny = x\nx += 3\nprint(x, y)\n```"
+  options:
+    A: "10 10"
+    B: "10 7"
+    C: "7 7"
+    D: "7 10"
+  correct: "B"
+  explanation: "y = x copies the integer value 7 into y. x += 3 creates a new integer 10 bound to x. y still holds 7."
+  misconception_tags:
+    A: "misc-001"
+
+- id: "q-005"
+  concept_slug: "variables-basics"
+  type: "predict_bug"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What happens when this code runs?\n```python\nprint(name)\nname = 'Alice'\n```"
+  options:
+    A: "Prints an empty string"
+    B: "Prints 'Alice'"
+    C: "Raises NameError"
+    D: "Raises SyntaxError"
+  correct: "C"
+  explanation: "Python raises a NameError when you try to use a variable before it has been assigned. 'name' is not defined at the point print() is called."
+
+- id: "q-006"
+  concept_slug: "variables-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.6
+  stem: "Which statement correctly performs a swap of two variables in Python?"
+  options:
+    A: "x = y; y = x"
+    B: "x, y = y, x"
+    C: "swap(x, y)"
+    D: "x <-> y"
+  correct: "B"
+  explanation: "Python supports tuple unpacking which allows simultaneous swap: x, y = y, x evaluates the right side first, then assigns."
+
+- id: "q-007"
+  concept_slug: "variables-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nx = 'hello'\nprint(type(x).__name__)\n```"
+  options:
+    A: "string"
+    B: "String"
+    C: "str"
+    D: "<class 'str'>"
+  correct: "C"
+  explanation: "type(x).__name__ returns the name of the type as a string. For a string object, this is 'str'."
+
+- id: "q-008"
+  concept_slug: "variables-basics"
+  type: "code_reading"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the final value of result?\n```python\nresult = 1\nresult = result + 1\nresult *= 3\nresult -= 2\n```"
+  options:
+    A: "3"
+    B: "4"
+    C: "5"
+    D: "6"
+  correct: "B"
+  explanation: "Start: result=1. After +1: result=2. After *=3: result=6. After -=2: result=4."
+
+- id: "q-009"
+  concept_slug: "data-types-overview"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "Which of the following is NOT a built-in Python data type?"
+  options:
+    A: "int"
+    B: "float"
+    C: "char"
+    D: "bool"
+  correct: "C"
+  explanation: "Python does not have a 'char' type. Individual characters are represented as strings of length 1. Python's built-in types include int, float, str, bool, list, tuple, dict, set, and NoneType."
+
+- id: "q-010"
+  concept_slug: "data-types-overview"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the type of the value `True` in Python?"
+  options:
+    A: "int"
+    B: "str"
+    C: "bool"
+    D: "NoneType"
+  correct: "C"
+  explanation: "True and False are boolean literals of type bool. In Python, bool is a subclass of int."
+
+- id: "q-011"
+  concept_slug: "data-types-overview"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What does `type([1, 2, 3])` return?"
+  options:
+    A: "<class 'tuple'>"
+    B: "<class 'list'>"
+    C: "<class 'array'>"
+    D: "<class 'set'>"
+  correct: "B"
+  explanation: "Square brackets [] create a list. type() returns the type object, displayed as <class 'list'>."
+
+- id: "q-012"
+  concept_slug: "data-types-overview"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "Which of the following is a mutable data type in Python?"
+  options:
+    A: "int"
+    B: "str"
+    C: "tuple"
+    D: "list"
+  correct: "D"
+  explanation: "Lists are mutable — their contents can be changed after creation. int, str, and tuple are immutable."
+
+- id: "q-013"
+  concept_slug: "data-types-overview"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nx = (1, 2, 3)\nprint(type(x).__name__)\n```"
+  options:
+    A: "list"
+    B: "set"
+    C: "tuple"
+    D: "dict"
+  correct: "C"
+  explanation: "Parentheses with comma-separated values create a tuple. type(x).__name__ returns 'tuple'."
+
+- id: "q-014"
+  concept_slug: "integers"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the result of `10 // 3` in Python?"
+  options:
+    A: "3.33"
+    B: "3"
+    C: "4"
+    D: "1"
+  correct: "B"
+  explanation: "// is floor division, which divides and rounds down to the nearest integer. 10 // 3 = 3 (not 3.33)."
+
+- id: "q-015"
+  concept_slug: "integers"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.6
+  stem: "What is the result of `2 ** 8` in Python?"
+  options:
+    A: "16"
+    B: "256"
+    C: "64"
+    D: "128"
+  correct: "B"
+  explanation: "** is the exponentiation operator. 2 ** 8 = 2^8 = 256."
+
+- id: "q-016"
+  concept_slug: "integers"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.65
+  stem: "What is the result of `17 % 5`?"
+  options:
+    A: "3"
+    B: "2"
+    C: "4"
+    D: "12"
+  correct: "B"
+  explanation: "% is the modulo operator, which returns the remainder. 17 = 5*3 + 2, so 17 % 5 = 2."
+
+- id: "q-017"
+  concept_slug: "integers"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "In Python 3, what is the result of `7 / 2`?"
+  options:
+    A: "3"
+    B: "3.5"
+    C: "4"
+    D: "3.0"
+  correct: "B"
+  explanation: "In Python 3, / always performs true division and returns a float. 7 / 2 = 3.5. Use // for integer (floor) division."
+
+- id: "q-018"
+  concept_slug: "integers"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(-7 // 2)\n```"
+  options:
+    A: "-3"
+    B: "-4"
+    C: "3"
+    D: "-3.5"
+  correct: "B"
+  explanation: "Floor division rounds toward negative infinity. -7 / 2 = -3.5, and floor(-3.5) = -4."
+
+- id: "q-019"
+  concept_slug: "floats"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the type of the value `3.14`?"
+  options:
+    A: "int"
+    B: "double"
+    C: "float"
+    D: "decimal"
+  correct: "C"
+  explanation: "Decimal point literals like 3.14 are of type float in Python. Python does not have a 'double' or 'decimal' built-in type (though the decimal module exists)."
+
+- id: "q-020"
+  concept_slug: "floats"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.65
+  stem: "What is the result of `1 / 2` in Python 3?"
+  options:
+    A: "0"
+    B: "0.5"
+    C: "1"
+    D: "Error"
+  correct: "B"
+  explanation: "In Python 3, the / operator performs true division. 1 / 2 = 0.5. This differs from Python 2 where 1 / 2 = 0."
+
+- id: "q-021"
+  concept_slug: "floats"
+  type: "predict_bug"
+  difficulty: 0.45
+  discrimination: 0.75
+  stem: "What is the result of this comparison?\n```python\nprint(0.1 + 0.2 == 0.3)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "Error"
+    D: "None"
+  correct: "B"
+  explanation: "Due to floating-point representation in binary, 0.1 + 0.2 is actually 0.30000000000000004, not exactly 0.3. Use math.isclose() for float comparisons."
+  misconception_tags:
+    A: "misc-030"
+
+- id: "q-022"
+  concept_slug: "floats"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(round(2.675, 2))\n```"
+  options:
+    A: "2.68"
+    B: "2.67"
+    C: "2.675"
+    D: "2.7"
+  correct: "B"
+  explanation: "Due to floating-point precision, 2.675 is stored as slightly less than 2.675, so round() rounds down to 2.67."
+  misconception_tags:
+    A: "misc-030"
+
+- id: "q-023"
+  concept_slug: "floats"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the result of `10.0 / 3`?"
+  options:
+    A: "3"
+    B: "3.33"
+    C: "3.3333333333333335"
+    D: "Error"
+  correct: "C"
+  explanation: "Float division returns a float with full precision. 10.0 / 3 produces 3.3333333333333335 (note the slight imprecision at the last digit due to floating-point representation)."
+
+- id: "q-024"
+  concept_slug: "floats"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "Which is the correct way to check if two floats are approximately equal?"
+  options:
+    A: "a == b"
+    B: "abs(a - b) < 1e-9"
+    C: "a is b"
+    D: "float(a) == float(b)"
+  correct: "B"
+  explanation: "Due to floating-point precision issues, == can fail for mathematically equal floats. The correct approach is to check if the absolute difference is smaller than a tolerance (epsilon). math.isclose() does this internally."
+  misconception_tags:
+    A: "misc-030"
+
+- id: "q-025"
+  concept_slug: "strings-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nprint('hello'[1])\n```"
+  options:
+    A: "h"
+    B: "e"
+    C: "l"
+    D: "Error"
+  correct: "B"
+  explanation: "String indexing starts at 0. 'hello'[0] = 'h', 'hello'[1] = 'e'."
+
+- id: "q-026"
+  concept_slug: "strings-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint(len('Python'))\n```"
+  options:
+    A: "5"
+    B: "6"
+    C: "7"
+    D: "Error"
+  correct: "B"
+  explanation: "len() returns the number of characters. 'Python' has 6 characters: P-y-t-h-o-n."
+
+- id: "q-027"
+  concept_slug: "strings-basics"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint('hello' * 3)\n```"
+  options:
+    A: "hello hello hello"
+    B: "hellohellohello"
+    C: "3hello"
+    D: "Error"
+  correct: "B"
+  explanation: "String repetition with * concatenates the string the specified number of times without spaces."
+
+- id: "q-028"
+  concept_slug: "strings-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint('hello'[-1])\n```"
+  options:
+    A: "h"
+    B: "o"
+    C: "e"
+    D: "Error"
+  correct: "B"
+  explanation: "Negative indexing counts from the end. -1 refers to the last character, which is 'o' in 'hello'."
+
+- id: "q-029"
+  concept_slug: "strings-basics"
+  type: "predict_bug"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What happens when you run this code?\n```python\ns = 'hello'\ns[0] = 'H'\n```"
+  options:
+    A: "s becomes 'Hello'"
+    B: "s becomes 'Hhello'"
+    C: "TypeError is raised"
+    D: "AttributeError is raised"
+  correct: "C"
+  explanation: "Strings are immutable in Python. You cannot change individual characters. To modify a string, create a new one: s = 'H' + s[1:]"
+
+- id: "q-030"
+  concept_slug: "strings-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint('abc' + 'def')\n```"
+  options:
+    A: "abcdef"
+    B: "abc def"
+    C: "6"
+    D: "Error"
+  correct: "A"
+  explanation: "The + operator concatenates two strings without adding any space."
+
+- id: "q-031"
+  concept_slug: "strings-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is the output?\n```python\ns = 'Python'\nprint(s[2:5])\n```"
+  options:
+    A: "yth"
+    B: "tho"
+    C: "ytho"
+    D: "Pyt"
+  correct: "B"
+  explanation: "Slicing s[2:5] returns characters at indices 2, 3, 4 (not including 5). 'Python'[2]='t', [3]='h', [4]='o' → 'tho'."
+
+- id: "q-032"
+  concept_slug: "strings-basics"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint('Hello, World!'.count('l'))\n```"
+  options:
+    A: "2"
+    B: "3"
+    C: "4"
+    D: "1"
+  correct: "B"
+  explanation: "count() counts occurrences of a substring. 'Hello, World!' contains 'l' at positions 2, 3, and 10 → count is 3."
+
+- id: "q-033"
+  concept_slug: "booleans"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nprint(True and False)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "1"
+    D: "0"
+  correct: "B"
+  explanation: "The 'and' operator returns True only if both operands are True. True and False = False."
+
+- id: "q-034"
+  concept_slug: "booleans"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint(bool(0))\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "0"
+    D: "Error"
+  correct: "B"
+  explanation: "0 is falsy in Python. bool(0) returns False. The falsy values include 0, 0.0, '', None, [], {}, set()."
+
+- id: "q-035"
+  concept_slug: "booleans"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "Which of the following values is TRUTHY in Python?"
+  options:
+    A: "0"
+    B: "None"
+    C: "\"0\""
+    D: "[]"
+  correct: "C"
+  explanation: "The string '0' is a non-empty string and is truthy. 0, None, and [] are all falsy in Python."
+
+- id: "q-036"
+  concept_slug: "booleans"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(True + True)\n```"
+  options:
+    A: "TrueTrue"
+    B: "True"
+    C: "2"
+    D: "Error"
+  correct: "C"
+  explanation: "bool is a subclass of int in Python. True == 1 and False == 0. So True + True = 1 + 1 = 2."
+  misconception_tags:
+    A: "misc-034"
+
+- id: "q-037"
+  concept_slug: "booleans"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(not not True)\n```"
+  options:
+    A: "False"
+    B: "True"
+    C: "not"
+    D: "Error"
+  correct: "B"
+  explanation: "not True = False, then not False = True. Double negation returns the original truth value."
+
+- id: "q-038"
+  concept_slug: "booleans"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(bool([]))\nprint(bool([0]))\n```"
+  options:
+    A: "False\nFalse"
+    B: "True\nTrue"
+    C: "False\nTrue"
+    D: "True\nFalse"
+  correct: "C"
+  explanation: "An empty list [] is falsy → bool([]) = False. A list with one element [0] is non-empty and therefore truthy → bool([0]) = True, even though 0 itself is falsy."
+
+- id: "q-039"
+  concept_slug: "booleans"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nx = 5\nprint(1 < x < 10)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "Error"
+    D: "1"
+  correct: "A"
+  explanation: "Python supports chained comparisons. '1 < x < 10' is equivalent to '1 < x and x < 10'. Since 1 < 5 < 10, the result is True."
+
+- id: "q-040"
+  concept_slug: "none-type"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the type of `None` in Python?"
+  options:
+    A: "bool"
+    B: "int"
+    C: "NoneType"
+    D: "null"
+  correct: "C"
+  explanation: "None is the sole value of type NoneType. It represents the absence of a value."
+
+- id: "q-041"
+  concept_slug: "none-type"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\ndef greet():\n    print('hi')\n\nresult = greet()\nprint(result)\n```"
+  options:
+    A: "hi\nhi"
+    B: "hi\nNone"
+    C: "None\nhi"
+    D: "hi"
+  correct: "B"
+  explanation: "greet() prints 'hi' and implicitly returns None. result is assigned None. Then print(result) prints None."
+
+- id: "q-042"
+  concept_slug: "none-type"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "Which is the correct way to check if a variable is None?"
+  options:
+    A: "if x == None:"
+    B: "if x = None:"
+    C: "if x is None:"
+    D: "if x is not None == False:"
+  correct: "C"
+  explanation: "The idiomatic Python way to check for None is 'x is None', which checks object identity. While 'x == None' also works, it can be overridden by __eq__, so 'is None' is preferred."
+  misconception_tags:
+    A: "misc-029"
+
+- id: "q-043"
+  concept_slug: "none-type"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nx = None\nif x:\n    print('truthy')\nelse:\n    print('falsy')\n```"
+  options:
+    A: "truthy"
+    B: "falsy"
+    C: "None"
+    D: "Error"
+  correct: "B"
+  explanation: "None is falsy in Python. The else branch executes and prints 'falsy'."
+
+- id: "q-044"
+  concept_slug: "none-type"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(None == False)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "None"
+    D: "Error"
+  correct: "B"
+  explanation: "None is not equal to False. None == False evaluates to False. None is only equal to itself."
+
+- id: "q-045"
+  concept_slug: "print-function"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nprint('a', 'b', 'c')\n```"
+  options:
+    A: "abc"
+    B: "a b c"
+    C: "a,b,c"
+    D: "['a', 'b', 'c']"
+  correct: "B"
+  explanation: "print() separates multiple arguments with a space by default (sep=' ')."
+
+- id: "q-046"
+  concept_slug: "print-function"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint('a', 'b', 'c', sep='-')\n```"
+  options:
+    A: "a b c"
+    B: "abc"
+    C: "a-b-c"
+    D: "a,b,c"
+  correct: "C"
+  explanation: "The sep parameter specifies the separator between multiple print arguments. sep='-' joins them with hyphens."
+
+- id: "q-047"
+  concept_slug: "print-function"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint('hello', end='')\nprint('world')\n```"
+  options:
+    A: "hello\nworld"
+    B: "helloworld"
+    C: "hello world"
+    D: "hello\nworld\n"
+  correct: "B"
+  explanation: "The end parameter specifies what to print at the end. end='' means no newline, so the next print continues on the same line."
+
+- id: "q-048"
+  concept_slug: "print-function"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.5
+  stem: "What does `print()` with no arguments output?"
+  options:
+    A: "Nothing at all"
+    B: "An empty string"
+    C: "A blank line (just a newline)"
+    D: "None"
+  correct: "C"
+  explanation: "print() with no arguments prints just the default end which is '\\n', resulting in a blank line."
+
+- id: "q-049"
+  concept_slug: "print-function"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nfor i in range(3):\n    print(i, end=' ')\n```"
+  options:
+    A: "0 1 2"
+    B: "0\n1\n2"
+    C: "0 1 2 "
+    D: "1 2 3"
+  correct: "C"
+  explanation: "range(3) gives 0, 1, 2. Each is printed followed by a space (end=' '). The final output is '0 1 2 ' (with a trailing space)."
+
+- id: "q-050"
+  concept_slug: "input-function"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What type does the `input()` function always return?"
+  options:
+    A: "int"
+    B: "float"
+    C: "str"
+    D: "It depends on what the user enters"
+  correct: "C"
+  explanation: "input() always returns a string, regardless of what the user types. You must explicitly convert it with int(), float(), etc."
+
+- id: "q-051"
+  concept_slug: "input-function"
+  type: "predict_bug"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is wrong with this code if the user enters '5'?\n```python\nage = input('Enter your age: ')\nif age > 18:\n    print('Adult')\n```"
+  options:
+    A: "Nothing, it works fine"
+    B: "TypeError because age is a string and 18 is int"
+    C: "SyntaxError in the if statement"
+    D: "It will always print 'Adult'"
+  correct: "B"
+  explanation: "input() returns a string. Comparing a string with > to an integer raises TypeError in Python 3. The fix is: age = int(input('Enter your age: '))"
+
+- id: "q-052"
+  concept_slug: "input-function"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output of `input()` if the user enters `  hello  ` (with spaces)?"
+  options:
+    A: "'hello'"
+    B: "'  hello  '"
+    C: "'hello   '"
+    D: "It depends on the OS"
+  correct: "B"
+  explanation: "input() returns exactly what the user typed, including leading and trailing spaces. Use .strip() to remove them."
+
+- id: "q-053"
+  concept_slug: "input-function"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "How do you correctly read an integer from the user?"
+  options:
+    A: "x = input()"
+    B: "x = int(input())"
+    C: "x = integer(input())"
+    D: "x = input(int)"
+  correct: "B"
+  explanation: "input() returns a string, so you must wrap it in int() to convert it to an integer."
+
+- id: "q-054"
+  concept_slug: "input-function"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What happens when you run:\n```python\nx = int(input())\n```\nand the user enters 'abc'?"
+  options:
+    A: "x is set to 0"
+    B: "x is set to None"
+    C: "ValueError is raised"
+    D: "TypeError is raised"
+  correct: "C"
+  explanation: "int() raises a ValueError when it cannot convert the string to an integer. 'abc' is not a valid integer literal."
+
+- id: "q-055"
+  concept_slug: "comments"
+  type: "multiple_choice"
+  difficulty: 0.15
+  discrimination: 0.5
+  stem: "Which character is used to start a single-line comment in Python?"
+  options:
+    A: "//"
+    B: "/*"
+    C: "#"
+    D: "--"
+  correct: "C"
+  explanation: "In Python, # starts a single-line comment. Everything after # on the same line is ignored by the interpreter."
+
+- id: "q-056"
+  concept_slug: "comments"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nx = 5  # x = 10\nprint(x)\n```"
+  options:
+    A: "5"
+    B: "10"
+    C: "5 10"
+    D: "Error"
+  correct: "A"
+  explanation: "Everything after # is a comment and is ignored. x is assigned 5, not 10. print(x) outputs 5."
+
+- id: "q-057"
+  concept_slug: "comments"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "Which of the following is a valid Python multi-line comment technique?"
+  options:
+    A: "Using /* ... */"
+    B: "Starting each line with #"
+    C: "Wrapping in <comment> tags"
+    D: "Using // at start of block"
+  correct: "B"
+  explanation: "Python doesn't have multi-line comment syntax. The convention is to start each line with #. Triple-quoted strings are sometimes used but they are string literals, not true comments."
+
+- id: "q-058"
+  concept_slug: "comments"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is a docstring in Python?"
+  options:
+    A: "A comment using #"
+    B: "A string literal at the start of a module, function, or class used as documentation"
+    C: "A type hint for function parameters"
+    D: "A special print statement for debugging"
+  correct: "B"
+  explanation: "A docstring is a string literal (usually triple-quoted) placed as the first statement of a module, function, class or method. It documents what the object does and is accessible via __doc__."
+
+- id: "q-059"
+  concept_slug: "comments"
+  type: "code_reading"
+  difficulty: 0.2
+  discrimination: 0.5
+  stem: "How many lines does Python actually execute in this code?\n```python\n# Step 1\nx = 10\n# Step 2\ny = x + 5\n# print result\n```"
+  options:
+    A: "5"
+    B: "3"
+    C: "2"
+    D: "0"
+  correct: "C"
+  explanation: "Python executes only the two assignment statements. The three lines starting with # are comments and are ignored by the interpreter."
+
+- id: "q-060"
+  concept_slug: "arithmetic-operators"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the result of `3 + 4 * 2`?"
+  options:
+    A: "14"
+    B: "11"
+    C: "10"
+    D: "24"
+  correct: "B"
+  explanation: "Python follows standard order of operations (PEMDAS/BODMAS). Multiplication is performed before addition: 4 * 2 = 8, then 3 + 8 = 11."
+
+- id: "q-061"
+  concept_slug: "arithmetic-operators"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.6
+  stem: "What is the result of `(3 + 4) * 2`?"
+  options:
+    A: "11"
+    B: "9"
+    C: "14"
+    D: "10"
+  correct: "C"
+  explanation: "Parentheses override normal precedence. 3 + 4 = 7 first, then 7 * 2 = 14."
+
+- id: "q-062"
+  concept_slug: "arithmetic-operators"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the result of `10 % 3`?"
+  options:
+    A: "3"
+    B: "0"
+    C: "1"
+    D: "0.33"
+  correct: "C"
+  explanation: "% is the modulo (remainder) operator. 10 = 3*3 + 1, so 10 % 3 = 1."
+
+- id: "q-063"
+  concept_slug: "arithmetic-operators"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint(2 ** 3 ** 2)\n```"
+  options:
+    A: "64"
+    B: "512"
+    C: "36"
+    D: "8"
+  correct: "B"
+  explanation: "Exponentiation is right-associative: 2 ** 3 ** 2 = 2 ** (3 ** 2) = 2 ** 9 = 512."
+
+- id: "q-064"
+  concept_slug: "arithmetic-operators"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nx = 10\nx += 5\nx //= 3\nprint(x)\n```"
+  options:
+    A: "5"
+    B: "3"
+    C: "4"
+    D: "15"
+  correct: "A"
+  explanation: "x starts at 10. x += 5 → x = 15. x //= 3 → x = 15 // 3 = 5."
+
+- id: "q-065"
+  concept_slug: "arithmetic-operators"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the result of `-5 % 3`?"
+  options:
+    A: "-2"
+    B: "1"
+    C: "-1"
+    D: "2"
+  correct: "B"
+  explanation: "In Python, the sign of the result of % follows the sign of the divisor (3 is positive). -5 = 3 * (-2) + 1, so -5 % 3 = 1."
+
+- id: "q-066"
+  concept_slug: "comparison-operators"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nprint(5 == 5.0)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "Error"
+    D: "None"
+  correct: "A"
+  explanation: "== compares values, not types. 5 (int) equals 5.0 (float) in value, so the result is True."
+
+- id: "q-067"
+  concept_slug: "comparison-operators"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint(3 != 3)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "Error"
+    D: "0"
+  correct: "B"
+  explanation: "!= is the 'not equal' operator. 3 != 3 is False because 3 is equal to 3."
+
+- id: "q-068"
+  concept_slug: "comparison-operators"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\na = [1, 2, 3]\nb = [1, 2, 3]\nprint(a == b)\nprint(a is b)\n```"
+  options:
+    A: "True\nTrue"
+    B: "True\nFalse"
+    C: "False\nTrue"
+    D: "False\nFalse"
+  correct: "B"
+  explanation: "== checks value equality: both lists have the same elements, so True. 'is' checks identity: they are two different objects in memory, so False."
+  misconception_tags:
+    A: "misc-029"
+
+- id: "q-069"
+  concept_slug: "comparison-operators"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint('apple' < 'banana')\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "Error"
+    D: "-1"
+  correct: "A"
+  explanation: "String comparison is lexicographic (alphabetical). 'apple' comes before 'banana' alphabetically, so 'apple' < 'banana' is True."
+
+- id: "q-070"
+  concept_slug: "comparison-operators"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(5 >= 5)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "5"
+    D: "1"
+  correct: "A"
+  explanation: ">= is 'greater than or equal to'. 5 >= 5 is True because 5 equals 5."
+
+- id: "q-071"
+  concept_slug: "logical-operators"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nprint(True or False)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "1"
+    D: "Error"
+  correct: "A"
+  explanation: "'or' returns True if at least one operand is True. True or False = True."
+
+- id: "q-072"
+  concept_slug: "logical-operators"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint(not True)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "0"
+    D: "Error"
+  correct: "B"
+  explanation: "'not' inverts the boolean value. not True = False."
+
+- id: "q-073"
+  concept_slug: "logical-operators"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output? (short-circuit evaluation)\n```python\ndef side_effect():\n    print('called')\n    return True\n\nresult = False and side_effect()\nprint(result)\n```"
+  options:
+    A: "called\nFalse"
+    B: "False"
+    C: "called\nTrue"
+    D: "True"
+  correct: "B"
+  explanation: "Python uses short-circuit evaluation. With 'and', if the left operand is False, the right side is never evaluated. side_effect() is never called."
+
+- id: "q-074"
+  concept_slug: "logical-operators"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nprint(0 or 'hello')\n```"
+  options:
+    A: "0"
+    B: "True"
+    C: "hello"
+    D: "False"
+  correct: "C"
+  explanation: "Python's 'or' returns the first truthy value, not necessarily True/False. 0 is falsy, so 'or' evaluates the next operand and returns 'hello' (a truthy string)."
+
+- id: "q-075"
+  concept_slug: "logical-operators"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nprint(5 and 10)\n```"
+  options:
+    A: "5"
+    B: "10"
+    C: "True"
+    D: "15"
+  correct: "B"
+  explanation: "Python's 'and' returns the last evaluated operand. 5 is truthy, so 'and' evaluates and returns 10 (the last operand). Both are truthy so the result is 10."
+
+- id: "q-076"
+  concept_slug: "logical-operators"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nx = None\nname = x or 'default'\nprint(name)\n```"
+  options:
+    A: "None"
+    B: "default"
+    C: "True"
+    D: "Error"
+  correct: "B"
+  explanation: "None is falsy. 'or' returns the second operand when the first is falsy. So name = 'default'. This is a common Python pattern for providing default values."
+
+- id: "q-077"
+  concept_slug: "string-formatting"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nname = 'Alice'\nprint(f'Hello, {name}!')\n```"
+  options:
+    A: "Hello, {name}!"
+    B: "Hello, Alice!"
+    C: "Hello, 'Alice'!"
+    D: "Error"
+  correct: "B"
+  explanation: "f-strings (formatted string literals) evaluate expressions inside {} and insert the result. {name} is replaced with the value of name, which is 'Alice'."
+
+- id: "q-078"
+  concept_slug: "string-formatting"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nx = 3.14159\nprint(f'{x:.2f}')\n```"
+  options:
+    A: "3.14159"
+    B: "3.14"
+    C: "3.1"
+    D: "3"
+  correct: "B"
+  explanation: ":.2f is a format specifier meaning 'float with 2 decimal places'. 3.14159 formatted to 2 decimal places is 3.14."
+
+- id: "q-079"
+  concept_slug: "string-formatting"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint('%s is %d years old' % ('Bob', 25))\n```"
+  options:
+    A: "%s is %d years old"
+    B: "Bob is 25 years old"
+    C: "Bob is 25.0 years old"
+    D: "Error"
+  correct: "B"
+  explanation: "The % formatting operator replaces %s with a string and %d with an integer. 'Bob' replaces %s and 25 replaces %d."
+
+- id: "q-080"
+  concept_slug: "string-formatting"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint('{} + {} = {}'.format(1, 2, 1+2))\n```"
+  options:
+    A: "{} + {} = {}"
+    B: "1 + 2 = 1+2"
+    C: "1 + 2 = 3"
+    D: "Error"
+  correct: "C"
+  explanation: ".format() replaces {} placeholders with the provided arguments in order. 1+2 is evaluated as 3 before being passed to format()."
+
+- id: "q-081"
+  concept_slug: "string-formatting"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nn = 42\nprint(f'{n:05d}')\n```"
+  options:
+    A: "42"
+    B: "00042"
+    C: "   42"
+    D: "42000"
+  correct: "B"
+  explanation: ":05d means format as integer with width 5, padded with zeros. 42 is 2 digits, so 3 zeros are prepended to make width 5: '00042'."
+
+- id: "q-082"
+  concept_slug: "string-methods"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nprint('hello'.upper())\n```"
+  options:
+    A: "HELLO"
+    B: "Hello"
+    C: "hello"
+    D: "Error"
+  correct: "A"
+  explanation: ".upper() returns a new string with all characters converted to uppercase."
+
+- id: "q-083"
+  concept_slug: "string-methods"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint('  hello  '.strip())\n```"
+  options:
+    A: "'  hello  '"
+    B: "'hello'"
+    C: "hello"
+    D: "  hello  "
+  correct: "C"
+  explanation: ".strip() removes leading and trailing whitespace from a string. The result is 'hello' (without quotes in print output)."
+
+- id: "q-084"
+  concept_slug: "string-methods"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint('a,b,c'.split(','))\n```"
+  options:
+    A: "['a', 'b', 'c']"
+    B: "('a', 'b', 'c')"
+    C: "a b c"
+    D: "{'a', 'b', 'c'}"
+  correct: "A"
+  explanation: ".split(',') splits the string on commas and returns a list of substrings."
+
+- id: "q-085"
+  concept_slug: "string-methods"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint('hello world'.replace('world', 'Python'))\n```"
+  options:
+    A: "hello world"
+    B: "hello Python"
+    C: "Python world"
+    D: "helloPython"
+  correct: "B"
+  explanation: ".replace(old, new) returns a new string with all occurrences of 'old' replaced by 'new'. 'world' is replaced with 'Python'."
+
+- id: "q-086"
+  concept_slug: "string-methods"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nwords = ['join', 'these', 'words']\nprint('-'.join(words))\n```"
+  options:
+    A: "join-these-words"
+    B: "['join', 'these', 'words']"
+    C: "jointheseswords"
+    D: "join these words"
+  correct: "A"
+  explanation: ".join() concatenates elements of an iterable with the string as separator. '-'.join(['join','these','words']) = 'join-these-words'."
+
+- id: "q-087"
+  concept_slug: "type-conversion"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nprint(int('42'))\n```"
+  options:
+    A: "'42'"
+    B: "42"
+    C: "42.0"
+    D: "Error"
+  correct: "B"
+  explanation: "int() converts a string to an integer. int('42') = 42."
+
+- id: "q-088"
+  concept_slug: "type-conversion"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nprint(float('3.14'))\n```"
+  options:
+    A: "'3.14'"
+    B: "3"
+    C: "3.14"
+    D: "Error"
+  correct: "C"
+  explanation: "float() converts a string to a floating-point number. float('3.14') = 3.14."
+
+- id: "q-089"
+  concept_slug: "type-conversion"
+  type: "predict_bug"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(int('3.5'))\n```"
+  options:
+    A: "3"
+    B: "4"
+    C: "3.5"
+    D: "ValueError"
+  correct: "D"
+  explanation: "int() cannot convert a float string directly. '3.5' contains a decimal point, so int('3.5') raises a ValueError. First convert with float(), then int(): int(float('3.5')) = 3."
+  misconception_tags:
+    A: "misc-033"
+
+- id: "q-090"
+  concept_slug: "type-conversion"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint(str(100))\nprint(type(str(100)))\n```"
+  options:
+    A: "100\n<class 'int'>"
+    B: "'100'\n<class 'str'>"
+    C: "100\n<class 'str'>"
+    D: "Error"
+  correct: "C"
+  explanation: "str(100) converts the integer 100 to the string '100'. print() displays it without quotes. type() shows <class 'str'>."
+
+- id: "q-091"
+  concept_slug: "type-conversion"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint(int(True))\nprint(int(False))\n```"
+  options:
+    A: "1\n0"
+    B: "True\nFalse"
+    C: "Error"
+    D: "0\n1"
+  correct: "A"
+  explanation: "bool is a subclass of int. int(True) = 1 and int(False) = 0."
+  misconception_tags:
+    B: "misc-034"
+
+- id: "q-092"
+  concept_slug: "if-statements"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nx = 10\nif x > 5:\n    print('big')\n```"
+  options:
+    A: "big"
+    B: "small"
+    C: "Nothing"
+    D: "Error"
+  correct: "A"
+  explanation: "x is 10, which is greater than 5. The condition is True, so 'big' is printed."
+
+- id: "q-093"
+  concept_slug: "if-statements"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nx = 3\nif x > 5:\n    print('big')\nprint('done')\n```"
+  options:
+    A: "big\ndone"
+    B: "done"
+    C: "big"
+    D: "Nothing"
+  correct: "B"
+  explanation: "x is 3, which is not > 5, so the if body is skipped. print('done') is not inside the if block (not indented), so it always runs."
+
+- id: "q-094"
+  concept_slug: "if-statements"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nif 0:\n    print('zero is truthy')\nelse:\n    print('zero is falsy')\n```"
+  options:
+    A: "zero is truthy"
+    B: "zero is falsy"
+    C: "Error"
+    D: "Nothing"
+  correct: "B"
+  explanation: "0 is falsy in Python. The if condition is False, so the else branch executes."
+
+- id: "q-095"
+  concept_slug: "if-statements"
+  type: "predict_bug"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What error does this code have?\n```python\nif x = 5:\n    print('five')\n```"
+  options:
+    A: "NameError"
+    B: "TypeError"
+    C: "SyntaxError"
+    D: "No error"
+  correct: "C"
+  explanation: "= is assignment; == is comparison. Using = inside an if condition is a SyntaxError in Python. The correct code is: if x == 5:"
+
+- id: "q-096"
+  concept_slug: "if-statements"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nage = 20\nif age >= 18:\n    print('can vote')\nif age >= 21:\n    print('can drink')\n```"
+  options:
+    A: "can vote\ncan drink"
+    B: "can vote"
+    C: "can drink"
+    D: "Nothing"
+  correct: "B"
+  explanation: "age is 20. 20 >= 18 is True → prints 'can vote'. 20 >= 21 is False → skips second print. Two separate if statements are both evaluated."
+
+- id: "q-097"
+  concept_slug: "if-statements"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nx = 5\nif x > 0:\n    if x > 10:\n        print('large')\n    print('positive')\n```"
+  options:
+    A: "large\npositive"
+    B: "positive"
+    C: "large"
+    D: "Nothing"
+  correct: "B"
+  explanation: "x > 0 is True (enter outer if). x > 10 is False (skip inner if). print('positive') is in the outer if block and runs."
+
+- id: "q-098"
+  concept_slug: "if-statements"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nscore = 75\ngrade = 'A' if score >= 90 else 'B' if score >= 75 else 'C'\nprint(grade)\n```"
+  options:
+    A: "A"
+    B: "B"
+    C: "C"
+    D: "Error"
+  correct: "B"
+  explanation: "Ternary expressions are evaluated left to right. score >= 90 is False, so we evaluate the else: score >= 75 is True, so grade = 'B'."
+
+- id: "q-099"
+  concept_slug: "elif-else"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nx = 5\nif x < 0:\n    print('negative')\nelif x == 0:\n    print('zero')\nelse:\n    print('positive')\n```"
+  options:
+    A: "negative"
+    B: "zero"
+    C: "positive"
+    D: "Error"
+  correct: "C"
+  explanation: "x is 5. x < 0 is False, x == 0 is False, so the else branch runs and prints 'positive'."
+
+- id: "q-100"
+  concept_slug: "elif-else"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nscore = 85\nif score >= 90:\n    grade = 'A'\nelif score >= 80:\n    grade = 'B'\nelif score >= 70:\n    grade = 'C'\nelse:\n    grade = 'F'\nprint(grade)\n```"
+  options:
+    A: "A"
+    B: "B"
+    C: "C"
+    D: "F"
+  correct: "B"
+  explanation: "score is 85. score >= 90 is False. score >= 80 is True → grade = 'B'. Once a branch is taken, the rest are skipped."
+
+- id: "q-101"
+  concept_slug: "elif-else"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nx = 10\nif x > 5:\n    print('A')\nelif x > 8:\n    print('B')\n```"
+  options:
+    A: "A"
+    B: "B"
+    C: "A\nB"
+    D: "Nothing"
+  correct: "A"
+  explanation: "x > 5 is True, so 'A' is printed and Python exits the if-elif chain. The elif is never checked because the first condition already matched."
+
+- id: "q-102"
+  concept_slug: "elif-else"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nx = 0\nif x:\n    print('nonzero')\nelif not x:\n    print('zero')\nelse:\n    print('other')\n```"
+  options:
+    A: "nonzero"
+    B: "zero"
+    C: "other"
+    D: "Nothing"
+  correct: "B"
+  explanation: "x is 0, which is falsy. if x is False. elif not x → not 0 = True → prints 'zero'."
+
+- id: "q-103"
+  concept_slug: "elif-else"
+  type: "predict_bug"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the problem with this code?\n```python\nif x > 0:\n    print('positive')\nelse:\n    print('negative')\nelif x == 0:\n    print('zero')\n```"
+  options:
+    A: "NameError for x"
+    B: "SyntaxError: elif after else"
+    C: "It prints twice"
+    D: "IndentationError"
+  correct: "B"
+  explanation: "In Python, elif must come before else. Having elif after else is a SyntaxError. The correct order is if, elif, else."
+
+- id: "q-104"
+  concept_slug: "while-loops"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\ni = 0\nwhile i < 3:\n    print(i)\n    i += 1\n```"
+  options:
+    A: "1\n2\n3"
+    B: "0\n1\n2"
+    C: "0\n1\n2\n3"
+    D: "0\n1"
+  correct: "B"
+  explanation: "i starts at 0. The loop runs while i < 3, printing i and incrementing. When i = 3, the condition fails. So 0, 1, 2 are printed."
+
+- id: "q-105"
+  concept_slug: "while-loops"
+  type: "predict_bug"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is wrong with this code?\n```python\ni = 0\nwhile i < 5:\n    print(i)\n```"
+  options:
+    A: "SyntaxError"
+    B: "It runs once then stops"
+    C: "Infinite loop — i is never incremented"
+    D: "Nothing, it prints 0 to 4"
+  correct: "C"
+  explanation: "i is never incremented inside the loop, so i < 5 is always True, creating an infinite loop."
+
+- id: "q-106"
+  concept_slug: "while-loops"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "How many times does this loop execute?\n```python\ncount = 10\nwhile count > 0:\n    count -= 3\n```"
+  options:
+    A: "3"
+    B: "4"
+    C: "10"
+    D: "Infinite"
+  correct: "B"
+  explanation: "count: 10→7→4→1→-2. The condition count > 0 fails when count = -2. The loop body ran 4 times (at counts 10, 7, 4, 1)."
+
+- id: "q-107"
+  concept_slug: "while-loops"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\ni = 1\nresult = 0\nwhile i <= 5:\n    result += i\n    i += 1\nprint(result)\n```"
+  options:
+    A: "10"
+    B: "15"
+    C: "5"
+    D: "14"
+  correct: "B"
+  explanation: "result accumulates 1+2+3+4+5 = 15."
+
+- id: "q-108"
+  concept_slug: "while-loops"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\ni = 0\nwhile True:\n    if i == 3:\n        break\n    i += 1\nprint(i)\n```"
+  options:
+    A: "2"
+    B: "3"
+    C: "4"
+    D: "Infinite loop"
+  correct: "B"
+  explanation: "The loop increments i until i == 3, then breaks. After the break, print(i) outputs 3."
+
+- id: "q-109"
+  concept_slug: "while-loops"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.75
+  stem: "What is the output?\n```python\ni = 0\nwhile i < 5:\n    i += 1\nelse:\n    print('done')\n```"
+  options:
+    A: "Nothing"
+    B: "done"
+    C: "Error"
+    D: "0 1 2 3 4"
+  correct: "B"
+  explanation: "Python while loops can have an else clause. The else block runs when the loop condition becomes False (normal exit). It does NOT run if the loop exits via break."
+
+- id: "q-110"
+  concept_slug: "while-loops"
+  type: "code_reading"
+  difficulty: 0.45
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nn = 1\nwhile n < 100:\n    n *= 2\nprint(n)\n```"
+  options:
+    A: "64"
+    B: "100"
+    C: "128"
+    D: "256"
+  correct: "C"
+  explanation: "n doubles each iteration: 1→2→4→8→16→32→64→128. When n = 128, 128 < 100 is False, loop exits. print(n) = 128."
+
+- id: "q-111"
+  concept_slug: "for-loops"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nfor i in [1, 2, 3]:\n    print(i)\n```"
+  options:
+    A: "1 2 3"
+    B: "1\n2\n3"
+    C: "[1, 2, 3]"
+    D: "0\n1\n2"
+  correct: "B"
+  explanation: "The for loop iterates over the list, printing each element on a new line (default behavior of print)."
+
+- id: "q-112"
+  concept_slug: "for-loops"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nfor char in 'abc':\n    print(char)\n```"
+  options:
+    A: "abc"
+    B: "a b c"
+    C: "a\nb\nc"
+    D: "Error"
+  correct: "C"
+  explanation: "Strings are iterable. The for loop iterates over each character and prints it on a new line."
+
+- id: "q-113"
+  concept_slug: "for-loops"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\ntotal = 0\nfor n in [2, 4, 6, 8]:\n    total += n\nprint(total)\n```"
+  options:
+    A: "2468"
+    B: "10"
+    C: "20"
+    D: "24"
+  correct: "C"
+  explanation: "total accumulates 2+4+6+8 = 20."
+
+- id: "q-114"
+  concept_slug: "for-loops"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nfor i in range(5):\n    pass\nprint(i)\n```"
+  options:
+    A: "5"
+    B: "4"
+    C: "0"
+    D: "Error"
+  correct: "B"
+  explanation: "After the loop, the loop variable i retains its last value. range(5) iterates 0,1,2,3,4. The last value is 4."
+
+- id: "q-115"
+  concept_slug: "for-loops"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nfor i in range(3):\n    for j in range(3):\n        pass\nprint(i, j)\n```"
+  options:
+    A: "2 2"
+    B: "3 3"
+    C: "2 3"
+    D: "0 0"
+  correct: "A"
+  explanation: "After nested loops, i and j hold their last values. range(3) ends at index 2. So both i and j are 2."
+
+- id: "q-116"
+  concept_slug: "for-loops"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nfor i, v in enumerate(['a', 'b', 'c']):\n    print(i, v)\n```"
+  options:
+    A: "0 a\n1 b\n2 c"
+    B: "1 a\n2 b\n3 c"
+    C: "a 0\nb 1\nc 2"
+    D: "Error"
+  correct: "A"
+  explanation: "enumerate() returns (index, value) pairs. By default it starts at 0."
+
+- id: "q-117"
+  concept_slug: "for-loops"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nresult = []\nfor x in range(5):\n    if x % 2 == 0:\n        result.append(x)\nprint(result)\n```"
+  options:
+    A: "[1, 3]"
+    B: "[0, 2, 4]"
+    C: "[0, 1, 2, 3, 4]"
+    D: "[2, 4]"
+  correct: "B"
+  explanation: "Even numbers in range(5) are 0, 2, 4. Each is appended to result. Final result = [0, 2, 4]."
+
+- id: "q-118"
+  concept_slug: "range-function"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What does `list(range(5))` produce?"
+  options:
+    A: "[1, 2, 3, 4, 5]"
+    B: "[0, 1, 2, 3, 4]"
+    C: "[0, 1, 2, 3, 4, 5]"
+    D: "[1, 2, 3, 4]"
+  correct: "B"
+  explanation: "range(5) generates numbers from 0 up to (but not including) 5: 0, 1, 2, 3, 4."
+
+- id: "q-119"
+  concept_slug: "range-function"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What does `list(range(2, 7))` produce?"
+  options:
+    A: "[2, 3, 4, 5, 6, 7]"
+    B: "[2, 3, 4, 5, 6]"
+    C: "[3, 4, 5, 6]"
+    D: "[2, 7]"
+  correct: "B"
+  explanation: "range(start, stop) generates numbers from start up to (but not including) stop. range(2, 7) = [2, 3, 4, 5, 6]."
+
+- id: "q-120"
+  concept_slug: "range-function"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What does `list(range(0, 10, 2))` produce?"
+  options:
+    A: "[0, 2, 4, 6, 8, 10]"
+    B: "[2, 4, 6, 8]"
+    C: "[0, 2, 4, 6, 8]"
+    D: "[0, 10, 2]"
+  correct: "C"
+  explanation: "range(start, stop, step) generates numbers from start up to (not including) stop, step apart. range(0, 10, 2) = [0, 2, 4, 6, 8]."
+
+- id: "q-121"
+  concept_slug: "range-function"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What does `list(range(5, 0, -1))` produce?"
+  options:
+    A: "[5, 4, 3, 2, 1, 0]"
+    B: "[5, 4, 3, 2, 1]"
+    C: "[4, 3, 2, 1, 0]"
+    D: "[0, 1, 2, 3, 4]"
+  correct: "B"
+  explanation: "With a negative step, range counts down. range(5, 0, -1) = [5, 4, 3, 2, 1]. It stops before reaching 0."
+
+- id: "q-122"
+  concept_slug: "range-function"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "How many elements does `range(1, 10, 3)` contain?"
+  options:
+    A: "3"
+    B: "4"
+    C: "9"
+    D: "10"
+  correct: "A"
+  explanation: "range(1, 10, 3) generates: 1, 4, 7. The next would be 10 which is not < 10. So 3 elements."
+
+- id: "q-123"
+  concept_slug: "break-continue"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nfor i in range(5):\n    if i == 3:\n        break\n    print(i)\n```"
+  options:
+    A: "0\n1\n2"
+    B: "0\n1\n2\n3"
+    C: "0\n1\n2\n3\n4"
+    D: "3\n4"
+  correct: "A"
+  explanation: "break exits the loop immediately. When i == 3, the loop breaks before printing 3. So only 0, 1, 2 are printed."
+
+- id: "q-124"
+  concept_slug: "break-continue"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nfor i in range(5):\n    if i == 3:\n        continue\n    print(i)\n```"
+  options:
+    A: "0\n1\n2"
+    B: "0\n1\n2\n4"
+    C: "0\n1\n2\n3\n4"
+    D: "3"
+  correct: "B"
+  explanation: "continue skips the rest of the loop body for that iteration and goes to the next. When i == 3, print is skipped but the loop continues with i = 4."
+
+- id: "q-125"
+  concept_slug: "break-continue"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nfor i in range(10):\n    if i % 2 == 0:\n        continue\n    if i > 5:\n        break\n    print(i)\n```"
+  options:
+    A: "1\n3\n5"
+    B: "1\n3\n5\n7\n9"
+    C: "0\n2\n4"
+    D: "1\n3"
+  correct: "A"
+  explanation: "Even numbers are skipped (continue). When i > 5, loop breaks. So we print odd numbers up to and including 5: 1, 3, 5. When i=7, break exits."
+
+- id: "q-126"
+  concept_slug: "break-continue"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nfor i in range(5):\n    pass\nelse:\n    print('else block')\n```"
+  options:
+    A: "else block"
+    B: "Nothing"
+    C: "Error"
+    D: "0 1 2 3 4"
+  correct: "A"
+  explanation: "The else clause of a for loop runs when the loop completes normally (without a break). Since there is no break here, 'else block' is printed."
+
+- id: "q-127"
+  concept_slug: "break-continue"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nfor i in range(5):\n    if i == 3:\n        break\nelse:\n    print('complete')\nprint('after loop')\n```"
+  options:
+    A: "complete\nafter loop"
+    B: "after loop"
+    C: "complete"
+    D: "Nothing"
+  correct: "B"
+  explanation: "The loop breaks when i == 3. When a for loop exits via break, the else clause is NOT executed. 'after loop' always runs."
+
+- id: "q-128"
+  concept_slug: "nested-loops"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "How many times does `print('*')` execute?\n```python\nfor i in range(3):\n    for j in range(4):\n        print('*')\n```"
+  options:
+    A: "3"
+    B: "4"
+    C: "7"
+    D: "12"
+  correct: "D"
+  explanation: "The outer loop runs 3 times. For each outer iteration, the inner loop runs 4 times. Total = 3 × 4 = 12 prints."
+
+- id: "q-129"
+  concept_slug: "nested-loops"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nfor i in range(3):\n    for j in range(3):\n        if i == j:\n            print(i, j)\n```"
+  options:
+    A: "0 0\n1 1\n2 2"
+    B: "0 0\n0 1\n0 2"
+    C: "0\n1\n2"
+    D: "0 0\n1 1\n2 2\n..."
+  correct: "A"
+  explanation: "The if condition i == j is True when i and j are equal. This happens at (0,0), (1,1), (2,2)."
+
+- id: "q-130"
+  concept_slug: "nested-loops"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nfor i in range(1, 4):\n    line = ''\n    for j in range(1, i + 1):\n        line += str(j)\n    print(line)\n```"
+  options:
+    A: "1\n12\n123"
+    B: "123\n12\n1"
+    C: "1\n2\n3"
+    D: "1 12 123"
+  correct: "A"
+  explanation: "i=1: j ranges 1→1, line='1'. i=2: j ranges 1→2, line='12'. i=3: j ranges 1→3, line='123'. Each line is printed."
+
+- id: "q-131"
+  concept_slug: "nested-loops"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.75
+  stem: "What does `break` do in a nested loop?\n```python\nfor i in range(3):\n    for j in range(3):\n        if j == 1:\n            break\n    print(i)\n```"
+  options:
+    A: "Exits both loops"
+    B: "Exits only the inner loop; outer continues"
+    C: "Skips to next iteration of outer loop"
+    D: "Causes an error"
+  correct: "B"
+  explanation: "break only exits the innermost enclosing loop. The outer loop continues after the inner break. i is printed for all 3 outer iterations (0, 1, 2)."
+
+- id: "q-132"
+  concept_slug: "nested-loops"
+  type: "code_reading"
+  difficulty: 0.5
+  discrimination: 0.75
+  stem: "What is the output?\n```python\ncount = 0\nfor i in range(5):\n    for j in range(5):\n        if i + j == 4:\n            count += 1\nprint(count)\n```"
+  options:
+    A: "4"
+    B: "5"
+    C: "9"
+    D: "25"
+  correct: "B"
+  explanation: "Pairs where i+j=4: (0,4), (1,3), (2,2), (3,1), (4,0). That's 5 pairs, all within range(5) for both i and j."
+
+- id: "q-133"
+  concept_slug: "lists-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nmy_list = [1, 2, 3, 4, 5]\nprint(my_list[2])\n```"
+  options:
+    A: "2"
+    B: "3"
+    C: "4"
+    D: "1"
+  correct: "B"
+  explanation: "List indexing starts at 0. my_list[2] is the third element, which is 3."
+
+- id: "q-134"
+  concept_slug: "lists-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nprint(len([1, 2, 3, 4, 5]))\n```"
+  options:
+    A: "4"
+    B: "5"
+    C: "6"
+    D: "Error"
+  correct: "B"
+  explanation: "len() returns the number of elements in the list. [1, 2, 3, 4, 5] has 5 elements."
+
+- id: "q-135"
+  concept_slug: "lists-basics"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nmy_list = [1, 2, 3]\nmy_list[1] = 99\nprint(my_list)\n```"
+  options:
+    A: "[1, 2, 3]"
+    B: "[1, 99, 3]"
+    C: "[99, 2, 3]"
+    D: "Error"
+  correct: "B"
+  explanation: "Lists are mutable. my_list[1] = 99 replaces the element at index 1 (which was 2) with 99."
+
+- id: "q-136"
+  concept_slug: "lists-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\na = [1, 2, 3]\nb = a\na.append(4)\nprint(b)\n```"
+  options:
+    A: "[1, 2, 3]"
+    B: "[1, 2, 3, 4]"
+    C: "[4, 1, 2, 3]"
+    D: "Error"
+  correct: "B"
+  explanation: "b = a makes b reference the same list as a. When a.append(4) modifies the list, b sees the change because both point to the same object."
+  misconception_tags:
+    A: "misc-001"
+
+- id: "q-137"
+  concept_slug: "lists-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nprint([1, 2] + [3, 4])\n```"
+  options:
+    A: "[1, 2, 3, 4]"
+    B: "[4, 6]"
+    C: "[3, 6]"
+    D: "Error"
+  correct: "A"
+  explanation: "The + operator concatenates two lists, creating a new list with all elements."
+
+- id: "q-138"
+  concept_slug: "lists-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nprint([0] * 4)\n```"
+  options:
+    A: "[0, 0, 0, 0]"
+    B: "[0]"
+    C: "0000"
+    D: "[4]"
+  correct: "A"
+  explanation: "The * operator repeats a list. [0] * 4 creates [0, 0, 0, 0]."
+
+- id: "q-139"
+  concept_slug: "lists-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nmy_list = [3, 1, 4, 1, 5]\nprint(my_list[-2])\n```"
+  options:
+    A: "4"
+    B: "1"
+    C: "5"
+    D: "1"
+  correct: "B"
+  explanation: "Negative indexing: -1 is 5, -2 is 1 (the second-to-last element). my_list[-2] = 1."
+
+- id: "q-140"
+  concept_slug: "lists-basics"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nmy_list = [[1, 2], [3, 4], [5, 6]]\nprint(my_list[1][0])\n```"
+  options:
+    A: "1"
+    B: "2"
+    C: "3"
+    D: "4"
+  correct: "C"
+  explanation: "my_list[1] = [3, 4]. Then [3, 4][0] = 3. This is indexing into a nested list."
+
+- id: "q-141"
+  concept_slug: "list-methods"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nmy_list = [1, 2, 3]\nmy_list.append(4)\nprint(my_list)\n```"
+  options:
+    A: "[4, 1, 2, 3]"
+    B: "[1, 2, 3, 4]"
+    C: "[1, 2, 3]"
+    D: "Error"
+  correct: "B"
+  explanation: ".append() adds a single element to the END of the list."
+
+- id: "q-142"
+  concept_slug: "list-methods"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nmy_list = [1, 2, 3]\nmy_list.append([4, 5])\nprint(len(my_list))\n```"
+  options:
+    A: "5"
+    B: "4"
+    C: "2"
+    D: "Error"
+  correct: "B"
+  explanation: ".append() adds the [4, 5] list as a single element. The list becomes [1, 2, 3, [4, 5]], which has 4 elements."
+  misconception_tags:
+    A: "misc-027"
+
+- id: "q-143"
+  concept_slug: "list-methods"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nmy_list = [1, 2, 3]\nmy_list.extend([4, 5])\nprint(my_list)\n```"
+  options:
+    A: "[1, 2, 3, [4, 5]]"
+    B: "[1, 2, 3, 4, 5]"
+    C: "[4, 5, 1, 2, 3]"
+    D: "Error"
+  correct: "B"
+  explanation: ".extend() adds each element of the iterable to the list. [1, 2, 3].extend([4, 5]) = [1, 2, 3, 4, 5]."
+  misconception_tags:
+    A: "misc-027"
+
+- id: "q-144"
+  concept_slug: "list-methods"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nmy_list = [3, 1, 4, 1, 5]\nmy_list.sort()\nprint(my_list)\n```"
+  options:
+    A: "[3, 1, 4, 1, 5]"
+    B: "[1, 1, 3, 4, 5]"
+    C: "[5, 4, 3, 1, 1]"
+    D: "[1, 1, 4, 3, 5]"
+  correct: "B"
+  explanation: ".sort() sorts the list in ascending order IN PLACE and returns None."
+
+- id: "q-145"
+  concept_slug: "list-methods"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nmy_list = [1, 2, 3, 2, 1]\nprint(my_list.count(2))\n```"
+  options:
+    A: "1"
+    B: "2"
+    C: "3"
+    D: "Error"
+  correct: "B"
+  explanation: ".count(x) returns the number of occurrences of x. 2 appears twice in the list."
+
+- id: "q-146"
+  concept_slug: "list-methods"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nmy_list = [1, 2, 3]\nremoved = my_list.pop()\nprint(removed, my_list)\n```"
+  options:
+    A: "1 [2, 3]"
+    B: "3 [1, 2]"
+    C: "2 [1, 3]"
+    D: "None [1, 2]"
+  correct: "B"
+  explanation: ".pop() with no argument removes and returns the LAST element. The list becomes [1, 2]."
+
+- id: "q-147"
+  concept_slug: "list-methods"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nmy_list = [1, 2, 3]\nmy_list.insert(1, 99)\nprint(my_list)\n```"
+  options:
+    A: "[1, 2, 3, 99]"
+    B: "[99, 1, 2, 3]"
+    C: "[1, 99, 2, 3]"
+    D: "[1, 99, 3]"
+  correct: "C"
+  explanation: ".insert(index, value) inserts value at the given index, shifting other elements right. .insert(1, 99) puts 99 at index 1."
+
+- id: "q-148"
+  concept_slug: "list-slicing"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\nmy_list = [0, 1, 2, 3, 4, 5]\nprint(my_list[2:5])\n```"
+  options:
+    A: "[2, 3, 4, 5]"
+    B: "[2, 3, 4]"
+    C: "[1, 2, 3, 4]"
+    D: "[3, 4, 5]"
+  correct: "B"
+  explanation: "Slicing [2:5] returns elements at indices 2, 3, 4 (not including 5). That's [2, 3, 4]."
+
+- id: "q-149"
+  concept_slug: "list-slicing"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nmy_list = [0, 1, 2, 3, 4, 5]\nprint(my_list[:3])\n```"
+  options:
+    A: "[0, 1, 2, 3]"
+    B: "[1, 2, 3]"
+    C: "[0, 1, 2]"
+    D: "[3, 4, 5]"
+  correct: "C"
+  explanation: "[:3] means from start up to (not including) index 3. That's [0, 1, 2]."
+
+- id: "q-150"
+  concept_slug: "list-slicing"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nmy_list = [0, 1, 2, 3, 4, 5]\nprint(my_list[3:])\n```"
+  options:
+    A: "[3, 4]"
+    B: "[3, 4, 5]"
+    C: "[4, 5]"
+    D: "[0, 1, 2]"
+  correct: "B"
+  explanation: "[3:] means from index 3 to the end. That's [3, 4, 5]."
+
+- id: "q-151"
+  concept_slug: "list-slicing"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nmy_list = [0, 1, 2, 3, 4, 5]\nprint(my_list[::2])\n```"
+  options:
+    A: "[0, 2, 4]"
+    B: "[1, 3, 5]"
+    C: "[0, 1, 2]"
+    D: "[0, 2, 4, 6]"
+  correct: "A"
+  explanation: "[::2] means every other element starting from the beginning. Indices 0, 2, 4 → [0, 2, 4]."
+
+- id: "q-152"
+  concept_slug: "list-slicing"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nmy_list = [0, 1, 2, 3, 4, 5]\nprint(my_list[::-1])\n```"
+  options:
+    A: "[5, 4, 3, 2, 1, 0]"
+    B: "[0, 1, 2, 3, 4, 5]"
+    C: "[5, 4, 3, 2, 1]"
+    D: "Error"
+  correct: "A"
+  explanation: "[::-1] reverses the list. Step of -1 iterates from end to start."
+
+- id: "q-153"
+  concept_slug: "list-slicing"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\na = [1, 2, 3, 4, 5]\nb = a[:]\nb.append(6)\nprint(len(a), len(b))\n```"
+  options:
+    A: "5 5"
+    B: "5 6"
+    C: "6 6"
+    D: "6 5"
+  correct: "B"
+  explanation: "a[:] creates a SHALLOW COPY of a. b is a new list. Appending to b doesn't affect a. a has 5 elements, b has 6."
+
+- id: "q-154"
+  concept_slug: "list-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nresult = [x * 2 for x in range(5)]\nprint(result)\n```"
+  options:
+    A: "[0, 2, 4, 6, 8]"
+    B: "[2, 4, 6, 8, 10]"
+    C: "[0, 1, 2, 3, 4]"
+    D: "[1, 2, 3, 4, 5]"
+  correct: "A"
+  explanation: "The list comprehension creates a list of x*2 for each x in range(5) (0,1,2,3,4). Result: [0, 2, 4, 6, 8]."
+
+- id: "q-155"
+  concept_slug: "list-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nresult = [x for x in range(10) if x % 2 == 0]\nprint(result)\n```"
+  options:
+    A: "[1, 3, 5, 7, 9]"
+    B: "[0, 2, 4, 6, 8]"
+    C: "[0, 2, 4, 6, 8, 10]"
+    D: "[2, 4, 6, 8]"
+  correct: "B"
+  explanation: "The if clause filters: only even numbers are included. range(10) = 0..9, even ones = [0, 2, 4, 6, 8]."
+
+- id: "q-156"
+  concept_slug: "list-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nresult = [s.upper() for s in ['a', 'b', 'c']]\nprint(result)\n```"
+  options:
+    A: "['a', 'b', 'c']"
+    B: "['A', 'B', 'C']"
+    C: "ABC"
+    D: "['ABC']"
+  correct: "B"
+  explanation: "The comprehension applies .upper() to each string in the list, creating a new list of uppercase strings."
+
+- id: "q-157"
+  concept_slug: "list-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nresult = [i*j for i in range(1, 3) for j in range(1, 4)]\nprint(result)\n```"
+  options:
+    A: "[1, 2, 3, 2, 4, 6]"
+    B: "[1, 4, 9]"
+    C: "[2, 4, 6]"
+    D: "[1, 2, 3, 4, 6, 9]"
+  correct: "A"
+  explanation: "Nested comprehension: i in [1,2], j in [1,2,3]. i=1: 1*1=1, 1*2=2, 1*3=3. i=2: 2*1=2, 2*2=4, 2*3=6. Result: [1,2,3,2,4,6]."
+
+- id: "q-158"
+  concept_slug: "list-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nresult = ['even' if x % 2 == 0 else 'odd' for x in range(4)]\nprint(result)\n```"
+  options:
+    A: "['even', 'odd', 'even', 'odd']"
+    B: "['odd', 'even', 'odd', 'even']"
+    C: "['even', 'even', 'odd', 'odd']"
+    D: "Error"
+  correct: "A"
+  explanation: "For each x in [0,1,2,3]: 0 is even, 1 is odd, 2 is even, 3 is odd. Result: ['even', 'odd', 'even', 'odd']."
+
+- id: "q-159"
+  concept_slug: "list-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nmatrix = [[1, 2], [3, 4], [5, 6]]\nflat = [n for row in matrix for n in row]\nprint(flat)\n```"
+  options:
+    A: "[[1, 2], [3, 4], [5, 6]]"
+    B: "[1, 2, 3, 4, 5, 6]"
+    C: "[1, 3, 5, 2, 4, 6]"
+    D: "Error"
+  correct: "B"
+  explanation: "The nested comprehension first iterates over rows, then over elements in each row, flattening the 2D list into 1D."
+
+- id: "q-160"
+  concept_slug: "tuples"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nt = (1, 2, 3)\nprint(type(t))\n```"
+  options:
+    A: "<class 'list'>"
+    B: "<class 'tuple'>"
+    C: "<class 'set'>"
+    D: "<class 'dict'>"
+  correct: "B"
+  explanation: "Parentheses with comma-separated values create a tuple. type(t) is <class 'tuple'>."
+
+- id: "q-161"
+  concept_slug: "tuples"
+  type: "predict_bug"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What happens when you run this code?\n```python\nt = (1, 2, 3)\nt[0] = 99\n```"
+  options:
+    A: "t becomes (99, 2, 3)"
+    B: "TypeError is raised"
+    C: "AttributeError is raised"
+    D: "Nothing happens"
+  correct: "B"
+  explanation: "Tuples are immutable. You cannot change elements after creation. This raises a TypeError."
+
+- id: "q-162"
+  concept_slug: "tuples"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\na, b, c = (10, 20, 30)\nprint(b)\n```"
+  options:
+    A: "10"
+    B: "20"
+    C: "30"
+    D: "Error"
+  correct: "B"
+  explanation: "Tuple unpacking assigns each element to a variable. a=10, b=20, c=30. print(b) = 20."
+
+- id: "q-163"
+  concept_slug: "tuples"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nt = (42,)\nprint(type(t))\n```"
+  options:
+    A: "<class 'int'>"
+    B: "<class 'tuple'>"
+    C: "<class 'list'>"
+    D: "Error"
+  correct: "B"
+  explanation: "A tuple with one element MUST have a trailing comma: (42,). Without the comma, (42) is just 42 in parentheses (an integer)."
+
+- id: "q-164"
+  concept_slug: "tuples"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is the output?\n```python\nt = (1, 2, 3, 2, 1)\nprint(t.count(2))\nprint(t.index(3))\n```"
+  options:
+    A: "2\n2"
+    B: "1\n3"
+    C: "2\n3"
+    D: "Error"
+  correct: "A"
+  explanation: ".count(2) = 2 (2 appears at indices 1 and 3). .index(3) = 2 (3 is at index 2)."
+
+- id: "q-165"
+  concept_slug: "sets"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.6
+  stem: "What is the output?\n```python\ns = {1, 2, 2, 3, 3, 3}\nprint(len(s))\n```"
+  options:
+    A: "6"
+    B: "3"
+    C: "2"
+    D: "1"
+  correct: "B"
+  explanation: "Sets store only unique values. Duplicates are removed. {1, 2, 2, 3, 3, 3} = {1, 2, 3}, which has 3 elements."
+
+- id: "q-166"
+  concept_slug: "sets"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.65
+  stem: "What is the output?\n```python\ns = {3, 1, 4, 1, 5, 9, 2, 6}\nprint(type(s))\n```"
+  options:
+    A: "<class 'list'>"
+    B: "<class 'tuple'>"
+    C: "<class 'set'>"
+    D: "<class 'dict'>"
+  correct: "C"
+  explanation: "Curly braces with comma-separated values (but no key-value pairs) create a set."
+
+- id: "q-167"
+  concept_slug: "sets"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\na = {1, 2, 3}\nb = {2, 3, 4}\nprint(a & b)\n```"
+  options:
+    A: "{1, 2, 3, 4}"
+    B: "{2, 3}"
+    C: "{1, 4}"
+    D: "{1, 2, 3, 2, 3, 4}"
+  correct: "B"
+  explanation: "& is the set intersection operator. It returns elements common to both sets. {1,2,3} & {2,3,4} = {2,3}."
+
+- id: "q-168"
+  concept_slug: "sets"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.7
+  stem: "What is the output?\n```python\na = {1, 2, 3}\nb = {2, 3, 4}\nprint(a | b)\n```"
+  options:
+    A: "{2, 3}"
+    B: "{1, 4}"
+    C: "{1, 2, 3, 4}"
+    D: "{1, 2, 3, 2, 3, 4}"
+  correct: "C"
+  explanation: "| is the set union operator. It returns all unique elements from both sets. {1,2,3} | {2,3,4} = {1, 2, 3, 4}."
+
+- id: "q-169"
+  concept_slug: "sets"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "How do you create an empty set in Python?"
+  options:
+    A: "s = {}"
+    B: "s = set()"
+    C: "s = []"
+    D: "s = empty_set()"
+  correct: "B"
+  explanation: "{} creates an empty DICT, not an empty set. To create an empty set, use set(). This is a common gotcha in Python."
+
+- id: "q-170"
+  concept_slug: "dicts-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nd = {'name': 'Alice', 'age': 30}\nprint(d['name'])\n```"
+  options:
+    A: "Alice"
+    B: "name"
+    C: "{'name': 'Alice', 'age': 30}"
+    D: "Error"
+  correct: "A"
+  explanation: "Dictionary values are accessed by key using square brackets. d['name'] returns the value associated with key 'name', which is 'Alice'."

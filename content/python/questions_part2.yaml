@@ -1,0 +1,3721 @@
+# Python Questions Part 2 - q-171 to q-430
+# AUTO-GENERATED - Requires subject-expert review before public launch
+
+# ── dicts-basics (q-171 to q-176) ───────────────────────────────────────────
+- id: "q-171"
+  concept_slug: "dicts-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the output of the following code?\n```python\nd = {'a': 1, 'b': 2}\nprint(d.get('c', 99))\n```"
+  options:
+    A: "None"
+    B: "KeyError"
+    C: "99"
+    D: "0"
+  correct: "C"
+  explanation: "dict.get(key, default) returns the default value when the key is absent instead of raising KeyError."
+  misconception_tags:
+    A: "misc-018"
+    B: "misc-018"
+
+- id: "q-172"
+  concept_slug: "dicts-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.5
+  stem: "Which of the following is a valid way to create an empty dictionary?"
+  options:
+    A: "d = []"
+    B: "d = ()"
+    C: "d = {}"
+    D: "d = set()"
+  correct: "C"
+  explanation: "{} creates an empty dict. [] is a list, () is a tuple, and set() creates an empty set (not {}, which is also a dict)."
+  misconception_tags:
+    D: "misc-019"
+
+- id: "q-173"
+  concept_slug: "dicts-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does the following code print?\n```python\nd = {'x': 10, 'y': 20}\nd['x'] = 99\nprint(d['x'])\n```"
+  options:
+    A: "10"
+    B: "99"
+    C: "KeyError"
+    D: "{'x': 99}"
+  correct: "B"
+  explanation: "Dictionaries are mutable. Assigning to an existing key overwrites its value."
+
+- id: "q-174"
+  concept_slug: "dicts-basics"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.7
+  stem: "What is printed?\n```python\nd = {'a': 1, 'b': 2, 'c': 3}\nprint(len(d))\n```"
+  options:
+    A: "2"
+    B: "3"
+    C: "6"
+    D: "{'a', 'b', 'c'}"
+  correct: "B"
+  explanation: "len() on a dict returns the number of key-value pairs."
+
+- id: "q-175"
+  concept_slug: "dicts-basics"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.7
+  stem: "Which statement correctly checks if the key 'z' exists in dict d?"
+  options:
+    A: "if d.has_key('z'):"
+    B: "if 'z' in d.values():"
+    C: "if 'z' in d:"
+    D: "if d['z'] is not None:"
+  correct: "C"
+  explanation: "'key in d' checks for key membership efficiently in O(1). has_key() was removed in Python 3."
+  misconception_tags:
+    A: "misc-002"
+    D: "misc-018"
+
+- id: "q-176"
+  concept_slug: "dicts-basics"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is the output?\n```python\nd = {1: 'one', 2: 'two'}\nfor k in d:\n    print(k)\n```"
+  options:
+    A: "one\ntwo"
+    B: "1 2"
+    C: "1\n2"
+    D: "(1, 'one')\n(2, 'two')"
+  correct: "C"
+  explanation: "Iterating over a dict yields its keys by default, one per line here."
+  misconception_tags:
+    A: "misc-018"
+
+# ── dict-methods (q-177 to q-181) ───────────────────────────────────────────
+- id: "q-177"
+  concept_slug: "dict-methods"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does dict.items() return?"
+  options:
+    A: "A list of keys"
+    B: "A list of values"
+    C: "A view of (key, value) tuple pairs"
+    D: "A copy of the dictionary"
+  correct: "C"
+  explanation: "dict.items() returns a dict_items view object of (key, value) pairs that reflects changes to the dict."
+
+- id: "q-178"
+  concept_slug: "dict-methods"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\nd = {'a': 1, 'b': 2}\nd.update({'b': 99, 'c': 3})\nprint(d)\n```"
+  options:
+    A: "{'a': 1, 'b': 2}"
+    B: "{'a': 1, 'b': 99, 'c': 3}"
+    C: "{'a': 1, 'b': 2, 'c': 3}"
+    D: "KeyError"
+  correct: "B"
+  explanation: "dict.update() merges another dict, overwriting existing keys with new values."
+
+- id: "q-179"
+  concept_slug: "dict-methods"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.7
+  stem: "What is the result of the following?\n```python\nd = {'a': 1, 'b': 2}\nv = d.pop('a')\nprint(v, d)\n```"
+  options:
+    A: "1 {'b': 2}"
+    B: "{'a': 1} {'b': 2}"
+    C: "None {'a': 1, 'b': 2}"
+    D: "KeyError"
+  correct: "A"
+  explanation: "dict.pop(key) removes the key-value pair and returns the value."
+
+- id: "q-180"
+  concept_slug: "dict-methods"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What does dict.setdefault('x', 0) do if 'x' is NOT in the dict?"
+  options:
+    A: "Raises KeyError"
+    B: "Returns 0 without modifying the dict"
+    C: "Inserts 'x': 0 and returns 0"
+    D: "Returns None"
+  correct: "C"
+  explanation: "setdefault inserts the key with the default value if the key is absent, then returns that value."
+
+- id: "q-181"
+  concept_slug: "dict-methods"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.65
+  stem: "What is printed?\n```python\nd = {'a': 1, 'b': 2, 'c': 3}\nprint(list(d.values()))\n```"
+  options:
+    A: "['a', 'b', 'c']"
+    B: "[1, 2, 3]"
+    C: "[('a', 1), ('b', 2), ('c', 3)]"
+    D: "dict_values([1, 2, 3])"
+  correct: "B"
+  explanation: "d.values() gives a view of values; wrapping with list() materializes it as [1, 2, 3]."
+
+# ── dict-comprehensions (q-182 to q-186) ────────────────────────────────────
+- id: "q-182"
+  concept_slug: "dict-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the result of the following?\n```python\nd = {x: x**2 for x in range(4)}\nprint(d)\n```"
+  options:
+    A: "[0, 1, 4, 9]"
+    B: "{0: 0, 1: 1, 2: 4, 3: 9}"
+    C: "{0, 1, 4, 9}"
+    D: "SyntaxError"
+  correct: "B"
+  explanation: "A dict comprehension {k: v for ...} creates a dictionary mapping each x to x**2."
+
+- id: "q-183"
+  concept_slug: "dict-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.7
+  stem: "What does the following produce?\n```python\nwords = ['hi', 'hello', 'hey']\nd = {w: len(w) for w in words}\nprint(d['hello'])\n```"
+  options:
+    A: "2"
+    B: "5"
+    C: "hi"
+    D: "KeyError"
+  correct: "B"
+  explanation: "The comprehension maps each word to its length. len('hello') == 5."
+
+- id: "q-184"
+  concept_slug: "dict-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "How do you invert a dict (swap keys and values) using a comprehension?"
+  options:
+    A: "{v: k for k, v in d.items()}"
+    B: "{k: v for v, k in d}"
+    C: "dict(reversed(d))"
+    D: "{d[k]: k for k in d.values()}"
+  correct: "A"
+  explanation: "Iterating d.items() gives (k, v) pairs; swapping them produces an inverted dict."
+
+- id: "q-185"
+  concept_slug: "dict-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\nd = {k: v for k, v in {'a': 1, 'b': 2, 'c': 3}.items() if v > 1}\nprint(d)\n```"
+  options:
+    A: "{'a': 1, 'b': 2, 'c': 3}"
+    B: "{'b': 2, 'c': 3}"
+    C: "{'a': 1}"
+    D: "{'b', 'c'}"
+  correct: "B"
+  explanation: "The if-filter inside the comprehension keeps only pairs where the value is greater than 1."
+
+- id: "q-186"
+  concept_slug: "dict-comprehensions"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What is the output?\n```python\nkeys = ['a', 'b', 'a']\nvals = [1, 2, 3]\nd = {k: v for k, v in zip(keys, vals)}\nprint(d)\n```"
+  options:
+    A: "{'a': 1, 'b': 2, 'a': 3}"
+    B: "{'a': 3, 'b': 2}"
+    C: "{'a': 1, 'b': 2}"
+    D: "ValueError"
+  correct: "B"
+  explanation: "Duplicate keys are overwritten; the last value for 'a' (which is 3) wins."
+  misconception_tags:
+    A: "misc-019"
+
+# ── nested-data (q-187 to q-191) ────────────────────────────────────────────
+- id: "q-187"
+  concept_slug: "nested-data"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.65
+  stem: "What is the output?\n```python\ndata = {'user': {'name': 'Alice', 'age': 30}}\nprint(data['user']['name'])\n```"
+  options:
+    A: "Alice"
+    B: "{'name': 'Alice', 'age': 30}"
+    C: "KeyError"
+    D: "user"
+  correct: "A"
+  explanation: "Chained indexing accesses nested dicts: first get 'user' dict, then 'name' key."
+
+- id: "q-188"
+  concept_slug: "nested-data"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.7
+  stem: "What is printed?\n```python\nmatrix = [[1, 2], [3, 4]]\nmatrix[1][0] = 99\nprint(matrix)\n```"
+  options:
+    A: "[[1, 2], [3, 4]]"
+    B: "[[1, 2], [99, 4]]"
+    C: "[[99, 2], [3, 4]]"
+    D: "IndexError"
+  correct: "B"
+  explanation: "matrix[1] is the second sublist [3, 4]; index 0 of that is 3, replaced by 99."
+
+- id: "q-189"
+  concept_slug: "nested-data"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What does the following print?\n```python\nd = {'scores': [10, 20, 30]}\nd['scores'].append(40)\nprint(d['scores'])\n```"
+  options:
+    A: "[10, 20, 30]"
+    B: "[10, 20, 30, 40]"
+    C: "TypeError"
+    D: "{'scores': [10, 20, 30, 40]}"
+  correct: "B"
+  explanation: "d['scores'] retrieves the list directly (by reference); appending modifies it in-place."
+
+- id: "q-190"
+  concept_slug: "nested-data"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the safest way to get a deeply nested value that may not exist?"
+  options:
+    A: "data['a']['b']['c']"
+    B: "data.get('a', {}).get('b', {}).get('c')"
+    C: "data['a', 'b', 'c']"
+    D: "data.nested('a.b.c')"
+  correct: "B"
+  explanation: "Chained .get() with empty-dict defaults prevents KeyError at each level of nesting."
+
+- id: "q-191"
+  concept_slug: "nested-data"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What is printed?\n```python\na = [1, 2, 3]\nb = [a, a]\nb[0][0] = 99\nprint(b[1][0])\n```"
+  options:
+    A: "1"
+    B: "99"
+    C: "IndexError"
+    D: "[99, 2, 3]"
+  correct: "B"
+  explanation: "Both b[0] and b[1] reference the same list object 'a'. Mutating through one reference is visible via the other."
+  misconception_tags:
+    A: "misc-020"
+
+# ── string-indexing (q-192 to q-196) ────────────────────────────────────────
+- id: "q-192"
+  concept_slug: "string-indexing"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.55
+  stem: "What is the output?\n```python\ns = 'Python'\nprint(s[0])\n```"
+  options:
+    A: "P"
+    B: "y"
+    C: "n"
+    D: "Python"
+  correct: "A"
+  explanation: "String indexing is 0-based; s[0] is the first character 'P'."
+
+- id: "q-193"
+  concept_slug: "string-indexing"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What does s[-1] return for s = 'hello'?"
+  options:
+    A: "h"
+    B: "o"
+    C: "e"
+    D: "IndexError"
+  correct: "B"
+  explanation: "Negative indices count from the end. -1 is the last character: 'o'."
+
+- id: "q-194"
+  concept_slug: "string-indexing"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\ns = 'abcde'\nprint(s[1:4])\n```"
+  options:
+    A: "abcd"
+    B: "bcd"
+    C: "bcde"
+    D: "abc"
+  correct: "B"
+  explanation: "Slicing s[1:4] returns characters at indices 1, 2, 3 — the stop index 4 is exclusive."
+
+- id: "q-195"
+  concept_slug: "string-indexing"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the output?\n```python\ns = 'Python'\nprint(s[-3:])\n```"
+  options:
+    A: "Pyt"
+    B: "tho"
+    C: "hon"
+    D: "ython"
+  correct: "C"
+  explanation: "s[-3:] slices from the third-last character to the end: 'h', 'o', 'n' → 'hon'."
+
+- id: "q-196"
+  concept_slug: "string-indexing"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the result?\n```python\ns = 'hello'\nprint(s[::2])\n```"
+  options:
+    A: "hlo"
+    B: "ell"
+    C: "hloe"
+    D: "olleh"
+  correct: "A"
+  explanation: "A step of 2 picks every other character starting from index 0: 'h', 'l', 'o' → 'hlo'."
+
+# ── string-operations (q-197 to q-201) ──────────────────────────────────────
+- id: "q-197"
+  concept_slug: "string-operations"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is printed?\n```python\nprint('hello'.upper())\n```"
+  options:
+    A: "hello"
+    B: "HELLO"
+    C: "Hello"
+    D: "TypeError"
+  correct: "B"
+  explanation: "str.upper() returns a new string with all characters converted to uppercase."
+
+- id: "q-198"
+  concept_slug: "string-operations"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does the following print?\n```python\nwords = ['one', 'two', 'three']\nprint(', '.join(words))\n```"
+  options:
+    A: "one two three"
+    B: "['one', 'two', 'three']"
+    C: "one, two, three"
+    D: "one,two,three"
+  correct: "C"
+  explanation: "str.join(iterable) concatenates elements with the string as the separator."
+
+- id: "q-199"
+  concept_slug: "string-operations"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the output?\n```python\ns = '  hello world  '\nprint(s.strip())\n```"
+  options:
+    A: "'  hello world  '"
+    B: "hello world"
+    C: "helloworld"
+    D: "hello"
+  correct: "B"
+  explanation: "str.strip() removes leading and trailing whitespace and returns the result."
+
+- id: "q-200"
+  concept_slug: "string-operations"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\ns = 'banana'\nprint(s.count('a'))\n```"
+  options:
+    A: "1"
+    B: "2"
+    C: "3"
+    D: "0"
+  correct: "C"
+  explanation: "'banana' contains 'a' at indices 1, 3, and 5 — count is 3."
+
+- id: "q-201"
+  concept_slug: "string-operations"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the result?\n```python\nprint('hello world'.replace('world', 'Python'))\n```"
+  options:
+    A: "hello world"
+    B: "hello Python"
+    C: "Python world"
+    D: "helloPython"
+  correct: "B"
+  explanation: "str.replace(old, new) returns a new string with all occurrences of old replaced by new."
+
+# ── string-immutability (q-202 to q-206) ────────────────────────────────────
+- id: "q-202"
+  concept_slug: "string-immutability"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What happens when you try to run this code?\n```python\ns = 'hello'\ns[0] = 'H'\n```"
+  options:
+    A: "s becomes 'Hello'"
+    B: "TypeError: 'str' object does not support item assignment"
+    C: "Nothing, strings are immutable so the assignment is silently ignored"
+    D: "AttributeError"
+  correct: "B"
+  explanation: "Strings are immutable in Python. You cannot change individual characters in-place; create a new string instead."
+  misconception_tags:
+    C: "misc-020"
+
+- id: "q-203"
+  concept_slug: "string-immutability"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the output?\n```python\ns = 'hello'\ns = s + ' world'\nprint(s)\n```"
+  options:
+    A: "hello"
+    B: "hello world"
+    C: "TypeError"
+    D: "helloworld"
+  correct: "B"
+  explanation: "Concatenation creates a NEW string; the variable s is rebound to it. The original 'hello' string is unchanged."
+
+- id: "q-204"
+  concept_slug: "string-immutability"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "Which is the most efficient way to build a string from many parts in a loop?"
+  options:
+    A: "s = ''; for x in parts: s += x"
+    B: "s = ''.join(parts)"
+    C: "s = str(parts)"
+    D: "s = parts[0]; s.extend(parts[1:])"
+  correct: "B"
+  explanation: "''.join() is O(n) because strings are immutable and += in a loop creates a new object each iteration, making it O(n²)."
+
+- id: "q-205"
+  concept_slug: "string-immutability"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is printed?\n```python\na = 'hello'\nb = a\na = a.upper()\nprint(b)\n```"
+  options:
+    A: "HELLO"
+    B: "hello"
+    C: "None"
+    D: "TypeError"
+  correct: "B"
+  explanation: "a.upper() returns a new string; a is rebound to it. b still references the original 'hello'."
+
+- id: "q-206"
+  concept_slug: "string-immutability"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the output?\n```python\ns = 'immutable'\nid1 = id(s)\ns += '!'\nprint(id(s) == id1)\n```"
+  options:
+    A: "True"
+    B: "False"
+    C: "TypeError"
+    D: "None"
+  correct: "B"
+  explanation: "s += '!' creates a new string object; the id changes, confirming strings are immutable."
+
+# ── regular-expressions-intro (q-207 to q-211) ──────────────────────────────
+- id: "q-207"
+  concept_slug: "regular-expressions-intro"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "Which module provides regular expression support in Python?"
+  options:
+    A: "regex"
+    B: "re"
+    C: "pattern"
+    D: "string"
+  correct: "B"
+  explanation: "The built-in 're' module provides all regex functionality: compile, match, search, findall, sub, etc."
+
+- id: "q-208"
+  concept_slug: "regular-expressions-intro"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What does re.search() return when no match is found?"
+  options:
+    A: "An empty string"
+    B: "False"
+    C: "None"
+    D: "0"
+  correct: "C"
+  explanation: "re.search() returns a Match object on success, or None when no match is found."
+
+- id: "q-209"
+  concept_slug: "regular-expressions-intro"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What does the pattern '\\d+' match?"
+  options:
+    A: "Any single digit"
+    B: "One or more digits"
+    C: "Zero or more digits"
+    D: "Any non-digit character"
+  correct: "B"
+  explanation: "\\d matches one digit; + is a quantifier meaning 'one or more', so \\d+ matches one or more consecutive digits."
+
+- id: "q-210"
+  concept_slug: "regular-expressions-intro"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the output?\n```python\nimport re\nresult = re.findall(r'\\d+', 'abc 123 def 456')\nprint(result)\n```"
+  options:
+    A: "'123'"
+    B: "['123', '456']"
+    C: "[123, 456]"
+    D: "['123 456']"
+  correct: "B"
+  explanation: "re.findall() returns all non-overlapping matches as a list of strings."
+
+- id: "q-211"
+  concept_slug: "regular-expressions-intro"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What is the difference between re.match() and re.search()?"
+  options:
+    A: "match() searches the whole string; search() only checks the start"
+    B: "match() checks only at the start; search() scans the entire string"
+    C: "They are identical"
+    D: "search() returns all matches; match() returns the first"
+  correct: "B"
+  explanation: "re.match() only matches at the beginning of the string; re.search() scans for the first match anywhere."
+
+# ── functions-basics (q-212 to q-219) ───────────────────────────────────────
+- id: "q-212"
+  concept_slug: "functions-basics"
+  type: "multiple_choice"
+  difficulty: 0.2
+  discrimination: 0.5
+  stem: "What keyword is used to define a function in Python?"
+  options:
+    A: "func"
+    B: "function"
+    C: "def"
+    D: "define"
+  correct: "C"
+  explanation: "Python uses the 'def' keyword to define a function."
+
+- id: "q-213"
+  concept_slug: "functions-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is printed?\n```python\ndef greet():\n    print('hello')\n\ngreet()\n```"
+  options:
+    A: "Nothing"
+    B: "greet"
+    C: "hello"
+    D: "TypeError"
+  correct: "C"
+  explanation: "Calling greet() executes the function body, which prints 'hello'."
+
+- id: "q-214"
+  concept_slug: "functions-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does a function return by default if there is no return statement?"
+  options:
+    A: "0"
+    B: "False"
+    C: "None"
+    D: "An empty string"
+  correct: "C"
+  explanation: "Functions without an explicit return statement implicitly return None."
+
+- id: "q-215"
+  concept_slug: "functions-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is the output?\n```python\ndef add(a, b):\n    return a + b\n\nresult = add(3, 4)\nprint(result)\n```"
+  options:
+    A: "7"
+    B: "34"
+    C: "None"
+    D: "TypeError"
+  correct: "A"
+  explanation: "The function adds its two arguments and returns the sum: 3 + 4 = 7."
+
+- id: "q-216"
+  concept_slug: "functions-basics"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "In Python, functions are:"
+  options:
+    A: "Only callable from the module they are defined in"
+    B: "First-class objects that can be assigned to variables"
+    C: "Always executed at definition time"
+    D: "Required to have a return statement"
+  correct: "B"
+  explanation: "Functions are first-class citizens: they can be stored in variables, passed as arguments, and returned from other functions."
+
+- id: "q-217"
+  concept_slug: "functions-basics"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\ndef show(x):\n    print(x)\n\nf = show\nf(42)\n```"
+  options:
+    A: "show"
+    B: "42"
+    C: "TypeError"
+    D: "None"
+  correct: "B"
+  explanation: "f is assigned the function object show; calling f(42) is equivalent to calling show(42)."
+
+- id: "q-218"
+  concept_slug: "functions-basics"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the purpose of a docstring in a function?"
+  options:
+    A: "It speeds up the function"
+    B: "It documents the function and is accessible via help() and __doc__"
+    C: "It is mandatory for the function to work"
+    D: "It replaces type hints"
+  correct: "B"
+  explanation: "A docstring (the first string literal in a function body) documents its purpose and is stored in __doc__."
+
+- id: "q-219"
+  concept_slug: "functions-basics"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is printed?\n```python\ndef outer():\n    def inner():\n        return 'inner'\n    return inner()\n\nprint(outer())\n```"
+  options:
+    A: "outer"
+    B: "inner"
+    C: "<function inner at ...>"
+    D: "TypeError"
+  correct: "B"
+  explanation: "outer() calls inner() and returns its result 'inner', which is then printed."
+
+# ── function-parameters (q-220 to q-225) ────────────────────────────────────
+- id: "q-220"
+  concept_slug: "function-parameters"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the output?\n```python\ndef greet(name, greeting):\n    print(f'{greeting}, {name}!')\n\ngreet('Alice', 'Hello')\n```"
+  options:
+    A: "Alice, Hello!"
+    B: "Hello, Alice!"
+    C: "greet, Alice!"
+    D: "TypeError"
+  correct: "B"
+  explanation: "Arguments are matched positionally: name='Alice', greeting='Hello'."
+
+- id: "q-221"
+  concept_slug: "function-parameters"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "How many arguments does this function expect?\n```python\ndef f(a, b, c):\n    return a + b + c\n```"
+  options:
+    A: "0"
+    B: "1"
+    C: "2"
+    D: "3"
+  correct: "D"
+  explanation: "The function signature lists three parameters: a, b, and c."
+
+- id: "q-222"
+  concept_slug: "function-parameters"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What error occurs when too few arguments are passed?\n```python\ndef f(a, b):\n    return a + b\nf(1)\n```"
+  options:
+    A: "ValueError"
+    B: "TypeError: f() missing 1 required positional argument"
+    C: "IndexError"
+    D: "NameError"
+  correct: "B"
+  explanation: "Calling a function with fewer arguments than parameters raises TypeError listing the missing argument(s)."
+
+- id: "q-223"
+  concept_slug: "function-parameters"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is a positional-only parameter (Python 3.8+)?"
+  options:
+    A: "A parameter that can only be passed as a keyword argument"
+    B: "A parameter listed before / in the signature that cannot be passed by keyword"
+    C: "A parameter with a default value"
+    D: "A *args parameter"
+  correct: "B"
+  explanation: "Parameters before the / marker are positional-only; callers must pass them positionally, not as keyword=value."
+
+- id: "q-224"
+  concept_slug: "function-parameters"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is the output?\n```python\ndef f(x, y=10):\n    return x + y\n\nprint(f(5))\n```"
+  options:
+    A: "5"
+    B: "10"
+    C: "15"
+    D: "TypeError"
+  correct: "C"
+  explanation: "y defaults to 10 when not supplied; 5 + 10 = 15."
+
+- id: "q-225"
+  concept_slug: "function-parameters"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\ndef f(a, b, c):\n    print(a, b, c)\n\nargs = (1, 2, 3)\nf(*args)\n```"
+  options:
+    A: "TypeError"
+    B: "(1, 2, 3)"
+    C: "1 2 3"
+    D: "[1, 2, 3]"
+  correct: "C"
+  explanation: "The * unpacking operator expands the tuple into separate positional arguments."
+
+# ── default-arguments (q-226 to q-230) ──────────────────────────────────────
+- id: "q-226"
+  concept_slug: "default-arguments"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the output?\n```python\ndef greet(name='World'):\n    print(f'Hello, {name}!')\n\ngreet()\n```"
+  options:
+    A: "Hello, !"
+    B: "Hello, name!"
+    C: "Hello, World!"
+    D: "TypeError"
+  correct: "C"
+  explanation: "When no argument is passed, name takes its default value 'World'."
+
+- id: "q-227"
+  concept_slug: "default-arguments"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\ndef f(x, y=5, z=10):\n    return x + y + z\n\nprint(f(1, z=2))\n```"
+  options:
+    A: "13"
+    B: "8"
+    C: "TypeError"
+    D: "16"
+  correct: "B"
+  explanation: "x=1, y=5 (default), z=2 (keyword override). 1 + 5 + 2 = 8."
+
+- id: "q-228"
+  concept_slug: "default-arguments"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "Why is using a mutable default argument (like a list) dangerous?\n```python\ndef append_one(lst=[]):\n    lst.append(1)\n    return lst\n```"
+  options:
+    A: "It raises TypeError on first call"
+    B: "The default list is shared across all calls; each call without an argument modifies the same object"
+    C: "It creates a new empty list on every call"
+    D: "It is not dangerous at all"
+  correct: "B"
+  explanation: "Default argument values are evaluated once at function definition. The same list object is reused across calls, accumulating values."
+  misconception_tags:
+    C: "misc-021"
+
+- id: "q-229"
+  concept_slug: "default-arguments"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What does the following print on the third call?\n```python\ndef f(x=[]):\n    x.append('a')\n    return x\n\nf(); f()\nprint(f())\n```"
+  options:
+    A: "['a']"
+    B: "['a', 'a']"
+    C: "['a', 'a', 'a']"
+    D: "[]"
+  correct: "C"
+  explanation: "The mutable default list persists between calls. After three calls, it contains three 'a' elements."
+  misconception_tags:
+    A: "misc-021"
+
+- id: "q-230"
+  concept_slug: "default-arguments"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the correct Python idiom to avoid the mutable default argument problem?"
+  options:
+    A: "def f(x=list())"
+    B: "def f(x=None):\n    if x is None: x = []"
+    C: "def f(x=()):"
+    D: "def f(x=[].copy()):"
+  correct: "B"
+  explanation: "Using None as the sentinel and creating a fresh list inside the function body is the standard Python idiom."
+
+# ── keyword-arguments (q-231 to q-235) ──────────────────────────────────────
+- id: "q-231"
+  concept_slug: "keyword-arguments"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the output?\n```python\ndef subtract(a, b):\n    return a - b\n\nprint(subtract(b=3, a=10))\n```"
+  options:
+    A: "-7"
+    B: "7"
+    C: "TypeError"
+    D: "13"
+  correct: "B"
+  explanation: "Keyword arguments can be passed in any order. a=10, b=3 → 10 - 3 = 7."
+
+- id: "q-232"
+  concept_slug: "keyword-arguments"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "Which of the following correctly mixes positional and keyword arguments?"
+  options:
+    A: "f(x=1, 2)"
+    B: "f(1, y=2)"
+    C: "f(y=2, 1)"
+    D: "f(x=1, 2, z=3)"
+  correct: "B"
+  explanation: "Positional arguments must come before keyword arguments. f(1, y=2) is valid; the others put keyword before positional."
+
+- id: "q-233"
+  concept_slug: "keyword-arguments"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What error occurs here?\n```python\ndef f(a, b):\n    pass\nf(1, a=2)\n```"
+  options:
+    A: "SyntaxError"
+    B: "TypeError: got multiple values for argument 'a'"
+    C: "ValueError"
+    D: "No error"
+  correct: "B"
+  explanation: "a receives the value 1 positionally and 2 as a keyword — that's two values for the same parameter."
+
+- id: "q-234"
+  concept_slug: "keyword-arguments"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What does a keyword-only parameter (after *) mean?\n```python\ndef f(a, *, b):\n    return a + b\n```"
+  options:
+    A: "b can be passed positionally or as keyword"
+    B: "b must be passed as a keyword argument"
+    C: "b is optional"
+    D: "b collects extra keyword arguments"
+  correct: "B"
+  explanation: "Parameters after a bare * in the signature are keyword-only; they cannot be passed positionally."
+
+- id: "q-235"
+  concept_slug: "keyword-arguments"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is printed?\n```python\ndef f(**kwargs):\n    print(kwargs)\n\nf(x=1, y=2)\n```"
+  options:
+    A: "(1, 2)"
+    B: "{'x': 1, 'y': 2}"
+    C: "x=1, y=2"
+    D: "TypeError"
+  correct: "B"
+  explanation: "**kwargs collects all extra keyword arguments into a dictionary."
+
+# ── return-values (q-236 to q-240) ──────────────────────────────────────────
+- id: "q-236"
+  concept_slug: "return-values"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the output?\n```python\ndef square(n):\n    return n * n\n\nprint(square(5))\n```"
+  options:
+    A: "10"
+    B: "5"
+    C: "25"
+    D: "None"
+  correct: "C"
+  explanation: "square(5) computes 5 * 5 = 25 and returns it."
+
+- id: "q-237"
+  concept_slug: "return-values"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\ndef multi():\n    return 1, 2, 3\n\nx = multi()\nprint(type(x))\n```"
+  options:
+    A: "<class 'list'>"
+    B: "<class 'tuple'>"
+    C: "<class 'int'>"
+    D: "<class 'set'>"
+  correct: "B"
+  explanation: "Returning multiple comma-separated values creates a tuple automatically."
+
+- id: "q-238"
+  concept_slug: "return-values"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\ndef f():\n    return\n    print('after return')\n\nresult = f()\nprint(result)\n```"
+  options:
+    A: "after return\nNone"
+    B: "None"
+    C: "after return"
+    D: "SyntaxError"
+  correct: "B"
+  explanation: "The bare 'return' exits immediately with None; code after return is unreachable (dead code)."
+
+- id: "q-239"
+  concept_slug: "return-values"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\ndef divide(a, b):\n    if b == 0:\n        return None\n    return a / b\n\nprint(divide(10, 2))\n```"
+  options:
+    A: "5.0"
+    B: "None"
+    C: "5"
+    D: "ZeroDivisionError"
+  correct: "A"
+  explanation: "b is 2, not 0, so the guard is skipped and 10 / 2 = 5.0 is returned and printed."
+
+- id: "q-240"
+  concept_slug: "return-values"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is the output?\n```python\ndef f():\n    return 1, 'a'\n\na, b = f()\nprint(a, b)\n```"
+  options:
+    A: "(1, 'a')"
+    B: "1 a"
+    C: "TypeError"
+    D: "1, a"
+  correct: "B"
+  explanation: "The returned tuple (1, 'a') is unpacked into a=1 and b='a'. print(a, b) outputs them space-separated."
+
+# ── variable-scope (q-241 to q-246) ─────────────────────────────────────────
+- id: "q-241"
+  concept_slug: "variable-scope"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\nx = 10\ndef f():\n    print(x)\n\nf()\n```"
+  options:
+    A: "10"
+    B: "NameError"
+    C: "None"
+    D: "0"
+  correct: "A"
+  explanation: "The function reads x from the enclosing global scope via LEGB rule."
+
+- id: "q-242"
+  concept_slug: "variable-scope"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\nx = 10\ndef f():\n    x = 20\n    print(x)\n\nf()\nprint(x)\n```"
+  options:
+    A: "20\n20"
+    B: "10\n10"
+    C: "20\n10"
+    D: "10\n20"
+  correct: "C"
+  explanation: "x = 20 inside f creates a local variable. The global x remains 10. LEGB: local shadows global inside f."
+
+- id: "q-243"
+  concept_slug: "variable-scope"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is the output?\n```python\nx = 5\ndef f():\n    global x\n    x = 99\n\nf()\nprint(x)\n```"
+  options:
+    A: "5"
+    B: "99"
+    C: "NameError"
+    D: "None"
+  correct: "B"
+  explanation: "'global x' tells Python that assignments to x inside f refer to the global x, so it is updated to 99."
+
+- id: "q-244"
+  concept_slug: "variable-scope"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\ndef outer():\n    n = 10\n    def inner():\n        nonlocal n\n        n = 20\n    inner()\n    print(n)\n\nouter()\n```"
+  options:
+    A: "10"
+    B: "20"
+    C: "NameError"
+    D: "None"
+  correct: "B"
+  explanation: "'nonlocal n' lets inner() modify the n in outer()'s enclosing scope."
+
+- id: "q-245"
+  concept_slug: "variable-scope"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What does LEGB stand for?"
+  options:
+    A: "Local, Enclosing, Global, Built-in"
+    B: "List, Enclosing, Garbage, Boolean"
+    C: "Local, External, Global, Block"
+    D: "Lambda, Enclosing, Global, Binary"
+  correct: "A"
+  explanation: "LEGB is Python's name lookup order: Local → Enclosing (closures) → Global → Built-in."
+
+- id: "q-246"
+  concept_slug: "variable-scope"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What is printed?\n```python\nx = 1\ndef f():\n    print(x)\n    x = 2\n\nf()\n```"
+  options:
+    A: "1"
+    B: "2"
+    C: "UnboundLocalError"
+    D: "None"
+  correct: "C"
+  explanation: "Because x is assigned inside f, Python treats it as local for the entire function. Reading it before assignment raises UnboundLocalError."
+  misconception_tags:
+    A: "misc-022"
+
+# ── lambda-functions (q-247 to q-251) ───────────────────────────────────────
+- id: "q-247"
+  concept_slug: "lambda-functions"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is the output?\n```python\nsquare = lambda x: x ** 2\nprint(square(4))\n```"
+  options:
+    A: "8"
+    B: "16"
+    C: "4"
+    D: "TypeError"
+  correct: "B"
+  explanation: "The lambda takes one argument x and returns x**2. square(4) → 4**2 = 16."
+
+- id: "q-248"
+  concept_slug: "lambda-functions"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "Which is equivalent to: lambda x, y: x + y ?"
+  options:
+    A: "def f(x): return x + y"
+    B: "def f(x, y): return x + y"
+    C: "def f(x, y): x + y"
+    D: "def f(x, y): print(x + y)"
+  correct: "B"
+  explanation: "A lambda with two parameters and an expression body is equivalent to a named def that returns the same expression."
+
+- id: "q-249"
+  concept_slug: "lambda-functions"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\npairs = [(1, 'b'), (3, 'a'), (2, 'c')]\npairs.sort(key=lambda p: p[1])\nprint(pairs)\n```"
+  options:
+    A: "[(1, 'b'), (3, 'a'), (2, 'c')]"
+    B: "[(3, 'a'), (1, 'b'), (2, 'c')]"
+    C: "[(1, 'b'), (2, 'c'), (3, 'a')]"
+    D: "TypeError"
+  correct: "B"
+  explanation: "Sorting by the second element (the string) alphabetically: 'a' < 'b' < 'c'."
+
+- id: "q-250"
+  concept_slug: "lambda-functions"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is a key limitation of lambda functions in Python?"
+  options:
+    A: "They cannot take arguments"
+    B: "They can only contain a single expression, not statements"
+    C: "They must always return None"
+    D: "They cannot be passed to other functions"
+  correct: "B"
+  explanation: "Lambda bodies are restricted to a single expression. You cannot use statements like assignments, loops, or if-blocks inside a lambda."
+
+- id: "q-251"
+  concept_slug: "lambda-functions"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\nfns = [lambda x: x+i for i in range(3)]\nprint(fns[0](10))\n```"
+  options:
+    A: "10"
+    B: "11"
+    C: "12"
+    D: "TypeError"
+  correct: "C"
+  explanation: "All lambdas in the list share the same closure over i. By the time fns[0] is called, the loop has finished and i == 2, so 10 + 2 = 12."
+  misconception_tags:
+    A: "misc-023"
+
+# ── args-kwargs (q-252 to q-256) ────────────────────────────────────────────
+- id: "q-252"
+  concept_slug: "args-kwargs"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\ndef f(*args):\n    print(args)\n\nf(1, 2, 3)\n```"
+  options:
+    A: "[1, 2, 3]"
+    B: "(1, 2, 3)"
+    C: "1 2 3"
+    D: "TypeError"
+  correct: "B"
+  explanation: "*args collects extra positional arguments into a tuple."
+
+- id: "q-253"
+  concept_slug: "args-kwargs"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the output?\n```python\ndef total(*nums):\n    return sum(nums)\n\nprint(total(1, 2, 3, 4))\n```"
+  options:
+    A: "[1, 2, 3, 4]"
+    B: "10"
+    C: "(1, 2, 3, 4)"
+    D: "TypeError"
+  correct: "B"
+  explanation: "*nums collects all positional arguments into a tuple; sum() adds them: 1+2+3+4=10."
+
+- id: "q-254"
+  concept_slug: "args-kwargs"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\ndef f(**kwargs):\n    for k, v in kwargs.items():\n        print(k, v)\n\nf(a=1, b=2)\n```"
+  options:
+    A: "TypeError"
+    B: "a 1\nb 2"
+    C: "{'a': 1, 'b': 2}"
+    D: "(a, 1)\n(b, 2)"
+  correct: "B"
+  explanation: "**kwargs collects keyword arguments into a dict; iterating items() gives (key, value) pairs."
+
+- id: "q-255"
+  concept_slug: "args-kwargs"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is the correct order of parameters in a function signature?"
+  options:
+    A: "**kwargs, *args, regular params"
+    B: "regular params, **kwargs, *args"
+    C: "regular params, *args, keyword-only params, **kwargs"
+    D: "*args, regular params, **kwargs"
+  correct: "C"
+  explanation: "Python requires: positional params → *args → keyword-only params → **kwargs."
+
+- id: "q-256"
+  concept_slug: "args-kwargs"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\ndef f(a, b, c):\n    print(a, b, c)\n\nd = {'b': 2, 'c': 3}\nf(1, **d)\n```"
+  options:
+    A: "TypeError"
+    B: "1 {'b': 2, 'c': 3}"
+    C: "1 2 3"
+    D: "1 2"
+  correct: "C"
+  explanation: "** unpacks the dict into keyword arguments: a=1, b=2, c=3."
+
+# ── recursion (q-257 to q-261) ───────────────────────────────────────────────
+- id: "q-257"
+  concept_slug: "recursion"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is the base case in this function?\n```python\ndef factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n```"
+  options:
+    A: "return n * factorial(n - 1)"
+    B: "n == 0 → return 1"
+    C: "factorial(n - 1)"
+    D: "There is no base case"
+  correct: "B"
+  explanation: "The base case is the condition that stops the recursion: when n == 0, return 1 without a recursive call."
+
+- id: "q-258"
+  concept_slug: "recursion"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the output of factorial(4) using the function above?"
+  options:
+    A: "10"
+    B: "24"
+    C: "12"
+    D: "RecursionError"
+  correct: "B"
+  explanation: "4! = 4 × 3 × 2 × 1 = 24."
+
+- id: "q-259"
+  concept_slug: "recursion"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What happens if a recursive function has no base case?"
+  options:
+    A: "It returns None"
+    B: "It raises RecursionError (maximum recursion depth exceeded)"
+    C: "It runs forever without error"
+    D: "Python automatically stops it after 10 calls"
+  correct: "B"
+  explanation: "Without a base case the call stack grows until Python's recursion limit is hit, raising RecursionError."
+
+- id: "q-260"
+  concept_slug: "recursion"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the output?\n```python\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n-1) + fib(n-2)\n\nprint(fib(6))\n```"
+  options:
+    A: "5"
+    B: "8"
+    C: "13"
+    D: "21"
+  correct: "B"
+  explanation: "Fibonacci sequence: 0,1,1,2,3,5,8. fib(6) = 8."
+
+- id: "q-261"
+  concept_slug: "recursion"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What technique can dramatically speed up naive recursive Fibonacci?"
+  options:
+    A: "Using global variables"
+    B: "Memoization (caching results of sub-problems)"
+    C: "Using a while loop inside the recursion"
+    D: "Increasing the recursion limit"
+  correct: "B"
+  explanation: "Memoization avoids redundant recomputation by caching subproblem results, reducing fib from O(2^n) to O(n)."
+
+# ── higher-order-functions (q-262 to q-266) ─────────────────────────────────
+- id: "q-262"
+  concept_slug: "higher-order-functions"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\nnums = [1, 2, 3, 4, 5]\nresult = list(map(lambda x: x * 2, nums))\nprint(result)\n```"
+  options:
+    A: "[1, 2, 3, 4, 5]"
+    B: "[2, 4, 6, 8, 10]"
+    C: "2 4 6 8 10"
+    D: "TypeError"
+  correct: "B"
+  explanation: "map() applies the lambda to each element; list() materializes it: [2, 4, 6, 8, 10]."
+
+- id: "q-263"
+  concept_slug: "higher-order-functions"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\nnums = [1, 2, 3, 4, 5, 6]\nresult = list(filter(lambda x: x % 2 == 0, nums))\nprint(result)\n```"
+  options:
+    A: "[1, 3, 5]"
+    B: "[2, 4, 6]"
+    C: "[True, False, True]"
+    D: "TypeError"
+  correct: "B"
+  explanation: "filter() keeps elements for which the predicate returns True — here, even numbers."
+
+- id: "q-264"
+  concept_slug: "higher-order-functions"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What does functools.reduce(lambda acc, x: acc + x, [1, 2, 3, 4]) return?"
+  options:
+    A: "[1, 2, 3, 4]"
+    B: "10"
+    C: "4"
+    D: "TypeError"
+  correct: "B"
+  explanation: "reduce() applies the binary function cumulatively: ((1+2)+3)+4 = 10."
+
+- id: "q-265"
+  concept_slug: "higher-order-functions"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is a higher-order function?"
+  options:
+    A: "A function defined at module level"
+    B: "A function that takes a function as an argument or returns a function"
+    C: "A function with more than three parameters"
+    D: "A recursive function"
+  correct: "B"
+  explanation: "Higher-order functions either accept functions as arguments (map, filter) or return them (decorators, closures)."
+
+- id: "q-266"
+  concept_slug: "higher-order-functions"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\ndef apply(fn, value):\n    return fn(value)\n\nprint(apply(str.upper, 'hello'))\n```"
+  options:
+    A: "hello"
+    B: "HELLO"
+    C: "TypeError"
+    D: "str.upper"
+  correct: "B"
+  explanation: "str.upper is an unbound method; apply calls it with 'hello', returning 'HELLO'."
+
+# ── file-reading (q-267 to q-271) ────────────────────────────────────────────
+- id: "q-267"
+  concept_slug: "file-reading"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "Which built-in function opens a file for reading in Python?"
+  options:
+    A: "read()"
+    B: "open()"
+    C: "file()"
+    D: "load()"
+  correct: "B"
+  explanation: "open() is the built-in that opens a file and returns a file object."
+
+- id: "q-268"
+  concept_slug: "file-reading"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does the following code do?\n```python\nwith open('data.txt') as f:\n    content = f.read()\n```"
+  options:
+    A: "Reads the first line of the file"
+    B: "Reads the entire file content as a single string"
+    C: "Reads the file into a list of lines"
+    D: "Opens the file for writing"
+  correct: "B"
+  explanation: "f.read() reads the entire file content as a single string."
+
+- id: "q-269"
+  concept_slug: "file-reading"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What does f.readlines() return?"
+  options:
+    A: "A single string with all content"
+    B: "A list of strings, one per line, including newline characters"
+    C: "A generator of lines"
+    D: "Only the first line"
+  correct: "B"
+  explanation: "readlines() reads all lines and returns them as a list; each string includes the trailing newline."
+
+- id: "q-270"
+  concept_slug: "file-reading"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the most memory-efficient way to process a large file line by line?"
+  options:
+    A: "content = f.read(); for line in content.split('\\n')"
+    B: "lines = f.readlines(); for line in lines"
+    C: "for line in f:"
+    D: "while f.readline():"
+  correct: "C"
+  explanation: "Iterating directly over a file object reads one line at a time without loading the whole file into memory."
+
+- id: "q-271"
+  concept_slug: "file-reading"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What mode string opens a file in read mode (default)?"
+  options:
+    A: "'w'"
+    B: "'a'"
+    C: "'r'"
+    D: "'rb'"
+  correct: "C"
+  explanation: "'r' is the default mode for reading text files. 'rb' reads in binary mode."
+
+# ── file-writing (q-272 to q-276) ────────────────────────────────────────────
+- id: "q-272"
+  concept_slug: "file-writing"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What mode string opens a file for writing, creating it if necessary and truncating existing content?"
+  options:
+    A: "'r'"
+    B: "'a'"
+    C: "'w'"
+    D: "'x'"
+  correct: "C"
+  explanation: "'w' opens for writing, creating the file if it doesn't exist and truncating it if it does."
+
+- id: "q-273"
+  concept_slug: "file-writing"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What mode opens a file for appending without truncating?"
+  options:
+    A: "'w'"
+    B: "'a'"
+    C: "'r+'"
+    D: "'x'"
+  correct: "B"
+  explanation: "'a' opens for appending; writes go to the end of the file without erasing existing content."
+
+- id: "q-274"
+  concept_slug: "file-writing"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the output of the following?\n```python\nwith open('out.txt', 'w') as f:\n    f.write('hello')\n    f.write(' world')\n```\nWhat does out.txt contain?"
+  options:
+    A: "hello\\nworld"
+    B: "hello world"
+    C: "hello"
+    D: "world"
+  correct: "B"
+  explanation: "write() does not add newlines automatically; two writes produce 'hello world' as a single line."
+
+- id: "q-275"
+  concept_slug: "file-writing"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What does f.writelines(['a\\n', 'b\\n']) do?"
+  options:
+    A: "Writes 'a', 'b' on separate lines with an extra blank line between them"
+    B: "Writes each string from the list to the file without adding separators"
+    C: "Raises TypeError because it only accepts a single string"
+    D: "Writes ['a\\n', 'b\\n'] literally including brackets"
+  correct: "B"
+  explanation: "writelines() writes each string in the iterable sequentially without inserting additional separators."
+
+- id: "q-276"
+  concept_slug: "file-writing"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What mode creates a new file and raises FileExistsError if it already exists?"
+  options:
+    A: "'w'"
+    B: "'a'"
+    C: "'r+'"
+    D: "'x'"
+  correct: "D"
+  explanation: "'x' (exclusive creation) raises FileExistsError if the file already exists, preventing accidental overwrites."
+
+# ── file-context-managers (q-277 to q-281) ──────────────────────────────────
+- id: "q-277"
+  concept_slug: "file-context-managers"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the main benefit of using 'with open(...)' over 'f = open(...)'?"
+  options:
+    A: "It reads files faster"
+    B: "The file is automatically closed when the with block exits, even on exceptions"
+    C: "It opens the file in read/write mode simultaneously"
+    D: "It prevents other processes from accessing the file"
+  correct: "B"
+  explanation: "The context manager protocol guarantees __exit__ is called, closing the file even if an exception occurs."
+
+- id: "q-278"
+  concept_slug: "file-context-managers"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What happens to a file opened with 'with open(...)' after the with block finishes?"
+  options:
+    A: "It stays open until garbage collected"
+    B: "It is automatically flushed and closed"
+    C: "It raises IOError"
+    D: "It is deleted"
+  correct: "B"
+  explanation: "Exiting the with block triggers __exit__, which calls close() on the file object."
+
+- id: "q-279"
+  concept_slug: "file-context-managers"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What protocol must an object implement to be used as a context manager?"
+  options:
+    A: "__open__ and __close__"
+    B: "__enter__ and __exit__"
+    C: "__start__ and __stop__"
+    D: "__init__ and __del__"
+  correct: "B"
+  explanation: "Context managers implement __enter__ (setup) and __exit__ (teardown) so the with statement can manage them."
+
+- id: "q-280"
+  concept_slug: "file-context-managers"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed after this code runs?\n```python\nwith open('tmp.txt', 'w') as f:\n    f.write('test')\nprint(f.closed)\n```"
+  options:
+    A: "False"
+    B: "True"
+    C: "None"
+    D: "AttributeError"
+  correct: "B"
+  explanation: "After the with block, f is closed. f.closed returns True."
+
+- id: "q-281"
+  concept_slug: "file-context-managers"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "How can you open two files simultaneously using a single with statement?"
+  options:
+    A: "with open('a') and open('b'):"
+    B: "with open('a') as f1, open('b') as f2:"
+    C: "with open('a', 'b') as f:"
+    D: "with open(['a', 'b']) as files:"
+  correct: "B"
+  explanation: "Multiple context managers can be combined in one with statement using commas."
+
+# ── file-paths (q-282 to q-286) ──────────────────────────────────────────────
+- id: "q-282"
+  concept_slug: "file-paths"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "Which module provides cross-platform path manipulation in modern Python?"
+  options:
+    A: "os.path"
+    B: "pathlib"
+    C: "sys"
+    D: "glob"
+  correct: "B"
+  explanation: "pathlib (Python 3.4+) provides an object-oriented API for file paths that works cross-platform."
+
+- id: "q-283"
+  concept_slug: "file-paths"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What does the following return on most systems?\n```python\nfrom pathlib import Path\np = Path('/home/user') / 'docs' / 'notes.txt'\nprint(p.name)\n```"
+  options:
+    A: "docs"
+    B: "notes.txt"
+    C: "/home/user/docs"
+    D: "notes"
+  correct: "B"
+  explanation: "Path.name returns the final path component (the filename)."
+
+- id: "q-284"
+  concept_slug: "file-paths"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the output?\n```python\nimport os\npath = os.path.join('data', 'files', 'report.csv')\nprint(path)\n```"
+  options:
+    A: "data/files/report.csv (Linux) or data\\files\\report.csv (Windows)"
+    B: "data files report.csv"
+    C: "['data', 'files', 'report.csv']"
+    D: "TypeError"
+  correct: "A"
+  explanation: "os.path.join() joins path components using the OS-specific separator."
+
+- id: "q-285"
+  concept_slug: "file-paths"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "How do you check if a file exists using pathlib?"
+  options:
+    A: "Path('file.txt').is_file()"
+    B: "os.access('file.txt', os.F_OK)"
+    C: "open('file.txt') and catching FileNotFoundError"
+    D: "All of the above are valid"
+  correct: "D"
+  explanation: "All three are valid approaches. Path.is_file() (pathlib) is the most Pythonic for new code."
+
+- id: "q-286"
+  concept_slug: "file-paths"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What does Path.suffix return for Path('report.csv')?"
+  options:
+    A: "report"
+    B: ".csv"
+    C: "csv"
+    D: "report.csv"
+  correct: "B"
+  explanation: "Path.suffix returns the file extension including the dot, e.g. '.csv'."
+
+# ── exceptions-basics (q-287 to q-291) ──────────────────────────────────────
+- id: "q-287"
+  concept_slug: "exceptions-basics"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.55
+  stem: "What is an exception in Python?"
+  options:
+    A: "A syntax error detected before the program runs"
+    B: "An error event that interrupts normal program flow at runtime"
+    C: "A type of comment"
+    D: "A special kind of function"
+  correct: "B"
+  explanation: "An exception is a runtime event that disrupts normal execution flow; it can be caught and handled."
+
+- id: "q-288"
+  concept_slug: "exceptions-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the base class of all built-in exceptions in Python?"
+  options:
+    A: "Error"
+    B: "Exception"
+    C: "BaseException"
+    D: "RuntimeError"
+  correct: "C"
+  explanation: "BaseException is the root of the exception hierarchy. Exception (and most user-visible errors) inherit from it."
+
+- id: "q-289"
+  concept_slug: "exceptions-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\ntry:\n    x = 1 / 0\nexcept ZeroDivisionError:\n    print('caught')\n```"
+  options:
+    A: "ZeroDivisionError"
+    B: "caught"
+    C: "Nothing"
+    D: "0"
+  correct: "B"
+  explanation: "1/0 raises ZeroDivisionError, which is caught by the except clause, printing 'caught'."
+
+- id: "q-290"
+  concept_slug: "exceptions-basics"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "Which of the following raises a ValueError?"
+  options:
+    A: "int('hello')"
+    B: "1 / 0"
+    C: "x = undefined_var"
+    D: "'a' + 1"
+  correct: "A"
+  explanation: "int('hello') raises ValueError because 'hello' is not a valid integer literal."
+
+- id: "q-291"
+  concept_slug: "exceptions-basics"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What does it mean that an exception is 'raised'?"
+  options:
+    A: "The program prints an error message and continues"
+    B: "An exception object is created and normal execution is interrupted"
+    C: "The exception is logged to a file"
+    D: "The function returns None"
+  correct: "B"
+  explanation: "Raising an exception creates an exception object and unwinds the call stack until a matching handler is found."
+
+# ── try-except (q-292 to q-297) ─────────────────────────────────────────────
+- id: "q-292"
+  concept_slug: "try-except"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is printed?\n```python\ntry:\n    result = int('abc')\nexcept ValueError as e:\n    print('ValueError caught')\n```"
+  options:
+    A: "Nothing"
+    B: "ValueError caught"
+    C: "abc"
+    D: "0"
+  correct: "B"
+  explanation: "int('abc') raises ValueError; the except clause catches it and prints the message."
+
+- id: "q-293"
+  concept_slug: "try-except"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\ntry:\n    x = 1\nexcept Exception:\n    print('error')\nelse:\n    print('ok')\n```"
+  options:
+    A: "error"
+    B: "ok"
+    C: "error\nok"
+    D: "Nothing"
+  correct: "B"
+  explanation: "No exception is raised, so the else clause runs, printing 'ok'."
+
+- id: "q-294"
+  concept_slug: "try-except"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "Can a single except clause catch multiple exception types?"
+  options:
+    A: "No, you need one except per exception type"
+    B: "Yes, using a tuple: except (TypeError, ValueError):"
+    C: "Yes, by listing them separated by commas without parentheses"
+    D: "Only in Python 2"
+  correct: "B"
+  explanation: "except (TypeError, ValueError): catches either exception type using a tuple."
+
+- id: "q-295"
+  concept_slug: "try-except"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\ntry:\n    raise ValueError('bad')\nexcept TypeError:\n    print('type')\nexcept ValueError:\n    print('value')\n```"
+  options:
+    A: "type"
+    B: "value"
+    C: "type\nvalue"
+    D: "ValueError: bad"
+  correct: "B"
+  explanation: "ValueError is raised; the first except (TypeError) doesn't match, so the second (ValueError) catches it."
+
+- id: "q-296"
+  concept_slug: "try-except"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is a 'bare except:' (without an exception type) problematic?"
+  options:
+    A: "It has a syntax error"
+    B: "It catches ALL exceptions including SystemExit and KeyboardInterrupt, making programs hard to interrupt"
+    C: "It only catches ValueError"
+    D: "It is equivalent to except Exception:"
+  correct: "B"
+  explanation: "A bare except: catches everything including SystemExit, KeyboardInterrupt, and GeneratorExit — usually undesirable. Use except Exception: instead."
+
+- id: "q-297"
+  concept_slug: "try-except"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\ntry:\n    x = {}['missing']\nexcept KeyError as e:\n    print(f'Key {e} not found')\n```"
+  options:
+    A: "Key missing not found"
+    B: "Key 'missing' not found"
+    C: "KeyError"
+    D: "Nothing"
+  correct: "B"
+  explanation: "KeyError stores the key as the exception value. e is 'missing' (with quotes when formatted)."
+
+# ── exception-types (q-298 to q-302) ────────────────────────────────────────
+- id: "q-298"
+  concept_slug: "exception-types"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "Which exception is raised when accessing a list with an out-of-range index?"
+  options:
+    A: "ValueError"
+    B: "KeyError"
+    C: "IndexError"
+    D: "TypeError"
+  correct: "C"
+  explanation: "IndexError is raised when a sequence index is out of range."
+
+- id: "q-299"
+  concept_slug: "exception-types"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What exception does 'None + 1' raise?"
+  options:
+    A: "ValueError"
+    B: "TypeError"
+    C: "AttributeError"
+    D: "RuntimeError"
+  correct: "B"
+  explanation: "TypeError is raised when an operation is applied to an object of inappropriate type."
+
+- id: "q-300"
+  concept_slug: "exception-types"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What exception is raised by 'undefined_variable'?"
+  options:
+    A: "ValueError"
+    B: "AttributeError"
+    C: "NameError"
+    D: "ImportError"
+  correct: "C"
+  explanation: "NameError is raised when a name is not found in local or global scope."
+
+- id: "q-301"
+  concept_slug: "exception-types"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "Which exception signals that a file was not found?"
+  options:
+    A: "IOError"
+    B: "FileNotFoundError"
+    C: "OSError"
+    D: "RuntimeError"
+  correct: "B"
+  explanation: "FileNotFoundError (a subclass of OSError) is raised when a file or directory is not found."
+
+- id: "q-302"
+  concept_slug: "exception-types"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What exception does 'import nonexistent_module' raise?"
+  options:
+    A: "NameError"
+    B: "ModuleNotFoundError"
+    C: "AttributeError"
+    D: "RuntimeError"
+  correct: "B"
+  explanation: "ModuleNotFoundError (a subclass of ImportError) is raised when a module cannot be found."
+
+# ── raising-exceptions (q-303 to q-307) ─────────────────────────────────────
+- id: "q-303"
+  concept_slug: "raising-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the correct syntax to raise a ValueError with a message?"
+  options:
+    A: "throw ValueError('bad input')"
+    B: "raise ValueError('bad input')"
+    C: "raise 'bad input'"
+    D: "error ValueError('bad input')"
+  correct: "B"
+  explanation: "Python uses 'raise' to raise exceptions; throw is a Java/C++ keyword, not valid Python."
+
+- id: "q-304"
+  concept_slug: "raising-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\ntry:\n    raise ValueError('oops')\nexcept ValueError as e:\n    print(str(e))\n```"
+  options:
+    A: "ValueError"
+    B: "oops"
+    C: "ValueError: oops"
+    D: "Nothing"
+  correct: "B"
+  explanation: "str(e) gives just the message 'oops'; repr(e) or the traceback would include the exception class name."
+
+- id: "q-305"
+  concept_slug: "raising-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What does a bare 'raise' inside an except block do?"
+  options:
+    A: "Raises a new RuntimeError"
+    B: "Re-raises the current exception preserving its traceback"
+    C: "Does nothing"
+    D: "SyntaxError outside of except"
+  correct: "B"
+  explanation: "A bare 'raise' with no argument re-raises the exception currently being handled, keeping the original traceback."
+
+- id: "q-306"
+  concept_slug: "raising-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is 'raise ValueError(...) from original_exc' used for?"
+  options:
+    A: "Catching the original exception before raising"
+    B: "Exception chaining: linking the new exception to its cause"
+    C: "Silencing the original exception"
+    D: "It is a syntax error"
+  correct: "B"
+  explanation: "'raise X from Y' implements explicit exception chaining, setting X.__cause__ = Y so the traceback shows both."
+
+- id: "q-307"
+  concept_slug: "raising-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "When is it appropriate to raise an exception in your own code?"
+  options:
+    A: "Only for input validation"
+    B: "Only when calling external APIs"
+    C: "Whenever a function cannot fulfill its contract due to bad input or state"
+    D: "Never — use return codes instead"
+  correct: "C"
+  explanation: "Raising exceptions is appropriate whenever a function cannot do what it promises: invalid args, inconsistent state, failed preconditions."
+
+# ── finally-else (q-308 to q-312) ───────────────────────────────────────────
+- id: "q-308"
+  concept_slug: "finally-else"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\ntry:\n    x = 1\nfinally:\n    print('finally')\n```"
+  options:
+    A: "Nothing"
+    B: "finally"
+    C: "1\nfinally"
+    D: "SyntaxError"
+  correct: "B"
+  explanation: "The finally block always runs regardless of whether an exception occurred."
+
+- id: "q-309"
+  concept_slug: "finally-else"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\ntry:\n    raise ValueError\nexcept ValueError:\n    print('except')\nfinally:\n    print('finally')\n```"
+  options:
+    A: "except"
+    B: "finally"
+    C: "except\nfinally"
+    D: "finally\nexcept"
+  correct: "C"
+  explanation: "The except block runs first (handling the exception), then finally always runs."
+
+- id: "q-310"
+  concept_slug: "finally-else"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "When does the else clause of a try statement run?"
+  options:
+    A: "Always"
+    B: "Only if an exception was raised"
+    C: "Only if no exception was raised in the try block"
+    D: "Only after finally"
+  correct: "C"
+  explanation: "The else clause runs only when the try block completed without raising an exception."
+
+- id: "q-311"
+  concept_slug: "finally-else"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is printed?\n```python\ntry:\n    result = 10 / 2\nexcept ZeroDivisionError:\n    print('error')\nelse:\n    print('success')\nfinally:\n    print('done')\n```"
+  options:
+    A: "success\ndone"
+    B: "error\ndone"
+    C: "success"
+    D: "done"
+  correct: "A"
+  explanation: "No exception → else runs ('success'), then finally always runs ('done')."
+
+- id: "q-312"
+  concept_slug: "finally-else"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "Does a finally block run if the except block re-raises an exception?"
+  options:
+    A: "No, once an exception propagates the finally is skipped"
+    B: "Yes, finally always runs"
+    C: "Only if it doesn't contain a return statement"
+    D: "Only for certain exception types"
+  correct: "B"
+  explanation: "finally always executes, even when the exception is re-raised or unhandled."
+
+# ── custom-exceptions (q-313 to q-317) ──────────────────────────────────────
+- id: "q-313"
+  concept_slug: "custom-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the correct way to define a custom exception?"
+  options:
+    A: "class MyError: pass"
+    B: "class MyError(Exception): pass"
+    C: "def MyError(Exception): pass"
+    D: "exception MyError: pass"
+  correct: "B"
+  explanation: "Custom exceptions should inherit from Exception (or a more specific subclass) so they integrate with Python's exception hierarchy."
+
+- id: "q-314"
+  concept_slug: "custom-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\nclass AppError(Exception):\n    pass\n\ntry:\n    raise AppError('something failed')\nexcept AppError as e:\n    print(str(e))\n```"
+  options:
+    A: "AppError"
+    B: "something failed"
+    C: "AppError: something failed"
+    D: "TypeError"
+  correct: "B"
+  explanation: "str(e) returns the exception message passed to the constructor."
+
+- id: "q-315"
+  concept_slug: "custom-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "Why is it a best practice to inherit from a specific exception subclass rather than BaseException directly?"
+  options:
+    A: "BaseException cannot be subclassed"
+    B: "except Exception: catches subclasses of Exception but not BaseException, keeping system exits intact"
+    C: "It is faster"
+    D: "It is only a style convention with no functional difference"
+  correct: "B"
+  explanation: "Inheriting from Exception ensures broad except Exception: handlers catch your error but SystemExit/KeyboardInterrupt (which inherit directly from BaseException) still propagate."
+
+- id: "q-316"
+  concept_slug: "custom-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "How can you add a custom attribute to your exception?\n```python\nclass ValidationError(Exception):\n    def __init__(self, message, field):\n        super().__init__(message)\n        self.field = field\n```\nHow do you access the field in the handler?"
+  options:
+    A: "e.args[0]"
+    B: "e.field"
+    C: "e['field']"
+    D: "str(e)"
+  correct: "B"
+  explanation: "Custom attributes set in __init__ are accessible as normal instance attributes on the caught exception."
+
+- id: "q-317"
+  concept_slug: "custom-exceptions"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "Which hierarchy lets you catch either DatabaseError or NetworkError with 'except AppError:'?\n```\nAppError → DatabaseError\nAppError → NetworkError\n```"
+  options:
+    A: "Only if they are the same class"
+    B: "Because DatabaseError and NetworkError are subclasses of AppError"
+    C: "Only if AppError is BaseException"
+    D: "This is not possible"
+  correct: "B"
+  explanation: "An except clause catches the named exception and all of its subclasses."
+
+# ── oop-concepts (q-318 to q-322) ────────────────────────────────────────────
+- id: "q-318"
+  concept_slug: "oop-concepts"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What does OOP stand for?"
+  options:
+    A: "Object-Oriented Programming"
+    B: "Open-Origin Protocol"
+    C: "Operational Output Processing"
+    D: "Object-Ordered Process"
+  correct: "A"
+  explanation: "OOP stands for Object-Oriented Programming, a paradigm that organizes code around objects and classes."
+
+- id: "q-319"
+  concept_slug: "oop-concepts"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "Which of the following is NOT a core pillar of OOP?"
+  options:
+    A: "Encapsulation"
+    B: "Inheritance"
+    C: "Compilation"
+    D: "Polymorphism"
+  correct: "C"
+  explanation: "The four pillars of OOP are Encapsulation, Inheritance, Polymorphism, and Abstraction. Compilation is a language implementation detail."
+
+- id: "q-320"
+  concept_slug: "oop-concepts"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is a class in Python?"
+  options:
+    A: "An instance of an object"
+    B: "A blueprint or template for creating objects"
+    C: "A built-in data type"
+    D: "A module"
+  correct: "B"
+  explanation: "A class defines the structure and behavior (attributes and methods) that its instances will have."
+
+- id: "q-321"
+  concept_slug: "oop-concepts"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is an object (instance) in OOP?"
+  options:
+    A: "A class definition"
+    B: "A concrete realization of a class with its own state"
+    C: "A module-level variable"
+    D: "A function"
+  correct: "B"
+  explanation: "An object is a specific instance of a class with its own attribute values."
+
+- id: "q-322"
+  concept_slug: "oop-concepts"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is polymorphism in OOP?"
+  options:
+    A: "Hiding implementation details"
+    B: "One class inheriting from another"
+    C: "The ability of different objects to respond to the same interface in their own way"
+    D: "Using multiple inheritance"
+  correct: "C"
+  explanation: "Polymorphism allows different classes to implement the same method name, letting code work with any object that provides that interface."
+
+# ── classes-basics (q-323 to q-329) ─────────────────────────────────────────
+- id: "q-323"
+  concept_slug: "classes-basics"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.55
+  stem: "What is the output?\n```python\nclass Dog:\n    pass\n\nd = Dog()\nprint(type(d))\n```"
+  options:
+    A: "<class 'object'>"
+    B: "<class '__main__.Dog'>"
+    C: "Dog"
+    D: "TypeError"
+  correct: "B"
+  explanation: "type() returns the class of an instance. For Dog instances it shows <class '__main__.Dog'>."
+
+- id: "q-324"
+  concept_slug: "classes-basics"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the first parameter of a method inside a class conventionally called?"
+  options:
+    A: "this"
+    B: "cls"
+    C: "self"
+    D: "me"
+  correct: "C"
+  explanation: "By convention the first parameter of an instance method is 'self', referring to the instance."
+
+- id: "q-325"
+  concept_slug: "classes-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\nclass Counter:\n    def __init__(self):\n        self.count = 0\n\nc = Counter()\nprint(c.count)\n```"
+  options:
+    A: "None"
+    B: "1"
+    C: "0"
+    D: "AttributeError"
+  correct: "C"
+  explanation: "__init__ sets count to 0 on the new instance. c.count returns 0."
+
+- id: "q-326"
+  concept_slug: "classes-basics"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\nclass Animal:\n    sound = 'generic'\n\nprint(Animal.sound)\n```"
+  options:
+    A: "AttributeError"
+    B: "generic"
+    C: "None"
+    D: "sound"
+  correct: "B"
+  explanation: "sound is a class attribute accessible via the class itself."
+
+- id: "q-327"
+  concept_slug: "classes-basics"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "How do you create an instance of class Car with no arguments?"
+  options:
+    A: "Car.new()"
+    B: "new Car()"
+    C: "Car()"
+    D: "create Car()"
+  correct: "C"
+  explanation: "Calling the class name as a function creates a new instance. Python has no 'new' keyword."
+
+- id: "q-328"
+  concept_slug: "classes-basics"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is printed?\n```python\nclass Pt:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\np = Pt(3, 4)\nprint(p.x + p.y)\n```"
+  options:
+    A: "34"
+    B: "7"
+    C: "TypeError"
+    D: "(3, 4)"
+  correct: "B"
+  explanation: "p.x = 3, p.y = 4; 3 + 4 = 7."
+
+- id: "q-329"
+  concept_slug: "classes-basics"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\nclass Box:\n    def __init__(self, v):\n        self.v = v\n    def double(self):\n        return self.v * 2\n\nb = Box(5)\nprint(b.double())\n```"
+  options:
+    A: "5"
+    B: "10"
+    C: "TypeError"
+    D: "None"
+  correct: "B"
+  explanation: "b.double() calls double with self=b; self.v is 5, so 5 * 2 = 10."
+
+# ── instance-methods (q-330 to q-334) ───────────────────────────────────────
+- id: "q-330"
+  concept_slug: "instance-methods"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is an instance method?"
+  options:
+    A: "A function defined outside the class"
+    B: "A method decorated with @staticmethod"
+    C: "A method that takes self as its first parameter and operates on instance data"
+    D: "A method decorated with @classmethod"
+  correct: "C"
+  explanation: "An instance method receives the instance as its first argument (self), giving it access to instance attributes."
+
+- id: "q-331"
+  concept_slug: "instance-methods"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\nclass Stack:\n    def __init__(self):\n        self.items = []\n    def push(self, item):\n        self.items.append(item)\n    def peek(self):\n        return self.items[-1]\n\ns = Stack()\ns.push(10)\ns.push(20)\nprint(s.peek())\n```"
+  options:
+    A: "10"
+    B: "20"
+    C: "[10, 20]"
+    D: "IndexError"
+  correct: "B"
+  explanation: "peek returns the last element of items. After pushing 10 then 20, the last element is 20."
+
+- id: "q-332"
+  concept_slug: "instance-methods"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What happens if you forget 'self' in an instance method definition?"
+  options:
+    A: "Python adds it automatically"
+    B: "TypeError when calling the method because arguments don't match"
+    C: "SyntaxError"
+    D: "The method becomes a static method"
+  correct: "B"
+  explanation: "Without self, the first passed argument is consumed as a regular parameter, misaligning the argument count."
+
+- id: "q-333"
+  concept_slug: "instance-methods"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\nclass Num:\n    def __init__(self, v):\n        self.v = v\n    def add(self, other):\n        return Num(self.v + other.v)\n\na = Num(3)\nb = Num(4)\nc = a.add(b)\nprint(c.v)\n```"
+  options:
+    A: "3"
+    B: "4"
+    C: "7"
+    D: "TypeError"
+  correct: "C"
+  explanation: "add creates a new Num with 3 + 4 = 7 and returns it. c.v is 7."
+
+- id: "q-334"
+  concept_slug: "instance-methods"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is a 'fluent interface' in OOP?"
+  options:
+    A: "A method that always prints to the console"
+    B: "An API design where methods return self, enabling method chaining"
+    C: "A method with no return value"
+    D: "A method decorated with @property"
+  correct: "B"
+  explanation: "Returning self from methods allows chaining like obj.method1().method2().method3()."
+
+# ── constructors (q-335 to q-339) ────────────────────────────────────────────
+- id: "q-335"
+  concept_slug: "constructors"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the purpose of __init__ in a Python class?"
+  options:
+    A: "To create the instance object"
+    B: "To initialize instance attributes after the object is created"
+    C: "To destroy the instance"
+    D: "To define class-level constants"
+  correct: "B"
+  explanation: "__init__ is called automatically after the instance is created; it initializes the instance's attributes."
+
+- id: "q-336"
+  concept_slug: "constructors"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is printed?\n```python\nclass Person:\n    def __init__(self, name, age=0):\n        self.name = name\n        self.age = age\n\np = Person('Bob')\nprint(p.age)\n```"
+  options:
+    A: "None"
+    B: "0"
+    C: "AttributeError"
+    D: "TypeError"
+  correct: "B"
+  explanation: "age has a default of 0; since no age is provided, p.age is 0."
+
+- id: "q-337"
+  concept_slug: "constructors"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is __new__ responsible for?"
+  options:
+    A: "Initializing instance attributes"
+    B: "Actually creating and returning the new instance object"
+    C: "Destroying the instance"
+    D: "Defining class attributes"
+  correct: "B"
+  explanation: "__new__ allocates and returns the new instance. __init__ then initializes it. Overriding __new__ is rare."
+
+- id: "q-338"
+  concept_slug: "constructors"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\nclass A:\n    def __init__(self):\n        print('A init')\n\nclass B(A):\n    def __init__(self):\n        super().__init__()\n        print('B init')\n\nB()\n```"
+  options:
+    A: "B init\nA init"
+    B: "A init\nB init"
+    C: "A init"
+    D: "B init"
+  correct: "B"
+  explanation: "super().__init__() calls A's __init__ first ('A init'), then B's continues ('B init')."
+
+- id: "q-339"
+  concept_slug: "constructors"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "When should you call super().__init__() in a subclass constructor?"
+  options:
+    A: "Never"
+    B: "Always at the end of __init__"
+    C: "When the parent class has initialization logic you need to run"
+    D: "Only when using multiple inheritance"
+  correct: "C"
+  explanation: "Call super().__init__() to ensure the parent's initialization runs. It's especially important when the parent sets up required state."
+
+# ── class-attributes (q-340 to q-344) ───────────────────────────────────────
+- id: "q-340"
+  concept_slug: "class-attributes"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is a class attribute?"
+  options:
+    A: "An attribute defined inside __init__ using self"
+    B: "An attribute shared by all instances, defined directly in the class body"
+    C: "An attribute that can only be read"
+    D: "An attribute prefixed with __"
+  correct: "B"
+  explanation: "Class attributes are defined in the class body outside any method and are shared among all instances."
+
+- id: "q-341"
+  concept_slug: "class-attributes"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\nclass Counter:\n    count = 0\n    def __init__(self):\n        Counter.count += 1\n\nCounter()\nCounter()\nprint(Counter.count)\n```"
+  options:
+    A: "0"
+    B: "1"
+    C: "2"
+    D: "AttributeError"
+  correct: "C"
+  explanation: "count is a class attribute incremented every time an instance is created. Two instances → count = 2."
+
+- id: "q-342"
+  concept_slug: "class-attributes"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the output?\n```python\nclass Dog:\n    species = 'Canis lupus'\n\nd = Dog()\nd.species = 'custom'\nprint(Dog.species)\n```"
+  options:
+    A: "custom"
+    B: "Canis lupus"
+    C: "AttributeError"
+    D: "None"
+  correct: "B"
+  explanation: "d.species = 'custom' creates an instance attribute on d only; the class attribute Dog.species is unchanged."
+  misconception_tags:
+    A: "misc-024"
+
+- id: "q-343"
+  concept_slug: "class-attributes"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is a danger of mutable class attributes (like a list)?"
+  options:
+    A: "They raise TypeError"
+    B: "Mutations via one instance are visible to all instances sharing the class attribute"
+    C: "They are slower than instance attributes"
+    D: "They cannot be iterated"
+  correct: "B"
+  explanation: "All instances share the same mutable object; appending to it via one instance changes it for every instance."
+  misconception_tags:
+    A: "misc-021"
+
+- id: "q-344"
+  concept_slug: "class-attributes"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What decorator marks a method that receives the class (not the instance) as its first argument?"
+  options:
+    A: "@staticmethod"
+    B: "@property"
+    C: "@classmethod"
+    D: "@abstractmethod"
+  correct: "C"
+  explanation: "@classmethod passes cls (the class object) as the first argument instead of self."
+
+# ── inheritance (q-345 to q-350) ─────────────────────────────────────────────
+- id: "q-345"
+  concept_slug: "inheritance"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is printed?\n```python\nclass Animal:\n    def speak(self):\n        return 'generic'\n\nclass Dog(Animal):\n    pass\n\nd = Dog()\nprint(d.speak())\n```"
+  options:
+    A: "AttributeError"
+    B: "generic"
+    C: "Dog"
+    D: "None"
+  correct: "B"
+  explanation: "Dog inherits speak() from Animal; since Dog doesn't override it, 'generic' is returned."
+
+- id: "q-346"
+  concept_slug: "inheritance"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "How do you specify a parent class in Python?"
+  options:
+    A: "class Child extends Parent:"
+    B: "class Child inherits Parent:"
+    C: "class Child(Parent):"
+    D: "class Child: Parent"
+  correct: "C"
+  explanation: "Python uses parentheses to specify the base class: class Child(Parent):"
+
+- id: "q-347"
+  concept_slug: "inheritance"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\nclass Shape:\n    def area(self):\n        return 0\n\nclass Circle(Shape):\n    def __init__(self, r):\n        self.r = r\n    def area(self):\n        return 3.14 * self.r ** 2\n\nc = Circle(2)\nprint(c.area())\n```"
+  options:
+    A: "0"
+    B: "12.56"
+    C: "6.28"
+    D: "TypeError"
+  correct: "B"
+  explanation: "Circle.area overrides Shape.area. 3.14 * 4 = 12.56."
+
+- id: "q-348"
+  concept_slug: "inheritance"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What does isinstance(d, Animal) return when d is an instance of Dog(Animal)?"
+  options:
+    A: "False"
+    B: "True"
+    C: "TypeError"
+    D: "None"
+  correct: "B"
+  explanation: "isinstance() returns True if the object is an instance of the class or any of its subclasses."
+
+- id: "q-349"
+  concept_slug: "inheritance"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is the Method Resolution Order (MRO)?"
+  options:
+    A: "The order in which methods are called at runtime"
+    B: "The order Python searches classes in the inheritance hierarchy when looking up an attribute"
+    C: "The alphabetical order of method names"
+    D: "The order in which methods are defined in the class"
+  correct: "B"
+  explanation: "MRO (C3 linearization) defines the lookup order for attributes and methods across a class hierarchy."
+
+- id: "q-350"
+  concept_slug: "inheritance"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What does super() do in Python 3?"
+  options:
+    A: "Creates a new parent class instance"
+    B: "Returns a proxy object that delegates method calls to the parent class"
+    C: "Calls all parent methods simultaneously"
+    D: "Checks if the class has a parent"
+  correct: "B"
+  explanation: "super() returns a proxy to the next class in the MRO, allowing you to call parent methods without hardcoding the class name."
+
+# ── method-overriding (q-351 to q-355) ──────────────────────────────────────
+- id: "q-351"
+  concept_slug: "method-overriding"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is method overriding?"
+  options:
+    A: "Defining two methods with the same name in the same class"
+    B: "Redefining a parent class method in a subclass with different behavior"
+    C: "Calling a method with extra arguments"
+    D: "Deleting a method from a class"
+  correct: "B"
+  explanation: "Method overriding allows a subclass to provide its own implementation of a method defined in the parent."
+
+- id: "q-352"
+  concept_slug: "method-overriding"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is printed?\n```python\nclass A:\n    def greet(self):\n        return 'Hello from A'\n\nclass B(A):\n    def greet(self):\n        return 'Hello from B'\n\nprint(B().greet())\n```"
+  options:
+    A: "Hello from A"
+    B: "Hello from B"
+    C: "Hello from A\nHello from B"
+    D: "AttributeError"
+  correct: "B"
+  explanation: "B.greet() overrides A.greet(); the most derived class's version is called."
+
+- id: "q-353"
+  concept_slug: "method-overriding"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\nclass A:\n    def greet(self):\n        return 'A'\n\nclass B(A):\n    def greet(self):\n        return super().greet() + 'B'\n\nprint(B().greet())\n```"
+  options:
+    A: "A"
+    B: "B"
+    C: "AB"
+    D: "BA"
+  correct: "C"
+  explanation: "B.greet() calls super().greet() (returns 'A') and appends 'B', yielding 'AB'."
+
+- id: "q-354"
+  concept_slug: "method-overriding"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What Python mechanism allows a subclass instance to be used wherever a parent instance is expected?"
+  options:
+    A: "Method overloading"
+    B: "The Liskov Substitution Principle / polymorphism"
+    C: "Multiple inheritance"
+    D: "Encapsulation"
+  correct: "B"
+  explanation: "Polymorphism (and the Liskov Substitution Principle) allows subclass instances to be treated as parent instances."
+
+- id: "q-355"
+  concept_slug: "method-overriding"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is printed?\n```python\nclass Animal:\n    def __init__(self, name):\n        self.name = name\n    def speak(self):\n        return f'{self.name} says ...'\n\nclass Cat(Animal):\n    def speak(self):\n        return f'{self.name} says meow'\n\nanimals = [Animal('A'), Cat('C')]\nfor a in animals:\n    print(a.speak())\n```"
+  options:
+    A: "A says ...\nA says meow"
+    B: "A says ...\nC says meow"
+    C: "C says meow\nA says ..."
+    D: "TypeError"
+  correct: "B"
+  explanation: "Each object uses its own speak(). Animal uses base, Cat uses override. Names are A and C respectively."
+
+# ── special-methods (q-356 to q-360) ────────────────────────────────────────
+- id: "q-356"
+  concept_slug: "special-methods"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What special method is called by str() and print() on an object?"
+  options:
+    A: "__repr__"
+    B: "__str__"
+    C: "__print__"
+    D: "__format__"
+  correct: "B"
+  explanation: "__str__ is called by str() and print() to get a human-readable string representation."
+
+- id: "q-357"
+  concept_slug: "special-methods"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What special method enables the + operator between two objects?"
+  options:
+    A: "__add__"
+    B: "__plus__"
+    C: "__sum__"
+    D: "__combine__"
+  correct: "A"
+  explanation: "Python calls __add__ when + is used between two objects: a + b calls a.__add__(b)."
+
+- id: "q-358"
+  concept_slug: "special-methods"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\nclass Vec:\n    def __init__(self, x, y):\n        self.x = x; self.y = y\n    def __str__(self):\n        return f'Vec({self.x}, {self.y})'\n\nprint(Vec(1, 2))\n```"
+  options:
+    A: "<__main__.Vec object at 0x...>"
+    B: "Vec(1, 2)"
+    C: "(1, 2)"
+    D: "TypeError"
+  correct: "B"
+  explanation: "print() calls __str__, which returns 'Vec(1, 2)'."
+
+- id: "q-359"
+  concept_slug: "special-methods"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What special method allows an object to be used with len()?"
+  options:
+    A: "__size__"
+    B: "__length__"
+    C: "__len__"
+    D: "__count__"
+  correct: "C"
+  explanation: "Implementing __len__ lets built-in len() work on your object."
+
+- id: "q-360"
+  concept_slug: "special-methods"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the difference between __str__ and __repr__?"
+  options:
+    A: "They are identical"
+    B: "__str__ is for humans (readable); __repr__ is for developers (unambiguous, ideally eval-able)"
+    C: "__repr__ is for humans; __str__ is for the REPL"
+    D: "__str__ is called by repr(); __repr__ is called by str()"
+  correct: "B"
+  explanation: "__str__ gives a friendly display string; __repr__ gives an unambiguous representation useful for debugging."
+
+# ── encapsulation (q-361 to q-365) ───────────────────────────────────────────
+- id: "q-361"
+  concept_slug: "encapsulation"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does a single leading underscore (e.g., _name) conventionally mean?"
+  options:
+    A: "The attribute is private and raises AttributeError if accessed externally"
+    B: "The attribute is intended for internal use only (a convention, not enforced)"
+    C: "The attribute is a class attribute"
+    D: "The attribute is a constant"
+  correct: "B"
+  explanation: "_name is a convention indicating 'internal/private'; Python does not enforce it — external access still works."
+
+- id: "q-362"
+  concept_slug: "encapsulation"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What does double underscore name mangling do?"
+  options:
+    A: "Makes the attribute completely inaccessible"
+    B: "Renames the attribute to _ClassName__attr, making accidental overrides in subclasses harder"
+    C: "Makes the attribute read-only"
+    D: "Marks the attribute as a class attribute"
+  correct: "B"
+  explanation: "Name mangling rewrites __attr to _ClassName__attr to reduce accidental name collisions in subclasses."
+
+- id: "q-363"
+  concept_slug: "encapsulation"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\nclass Safe:\n    def __init__(self):\n        self.__secret = 42\n\ns = Safe()\nprint(s._Safe__secret)\n```"
+  options:
+    A: "AttributeError"
+    B: "42"
+    C: "None"
+    D: "__secret"
+  correct: "B"
+  explanation: "Name-mangled attributes can still be accessed using the mangled name _ClassName__attr."
+
+- id: "q-364"
+  concept_slug: "encapsulation"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is a @property decorator used for?"
+  options:
+    A: "To make a method static"
+    B: "To allow a method to be called like an attribute (getter) with optional setter/deleter"
+    C: "To mark a method as abstract"
+    D: "To cache the result of a method"
+  correct: "B"
+  explanation: "@property allows defining getter (and optionally setter/deleter) logic while accessing the attribute with simple dot notation."
+
+- id: "q-365"
+  concept_slug: "encapsulation"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the main benefit of encapsulation?"
+  options:
+    A: "It makes code run faster"
+    B: "It hides implementation details and exposes only a controlled interface, reducing coupling"
+    C: "It allows multiple inheritance"
+    D: "It prevents all bugs"
+  correct: "B"
+  explanation: "Encapsulation restricts direct access to internal state and exposes it through a defined interface, reducing unintended dependencies."
+
+# ── complexity-basics (q-366 to q-370) ──────────────────────────────────────
+- id: "q-366"
+  concept_slug: "complexity-basics"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does Big-O notation describe?"
+  options:
+    A: "The exact runtime of an algorithm in seconds"
+    B: "The upper bound on the growth rate of an algorithm's time/space requirements"
+    C: "The minimum possible runtime"
+    D: "The average case runtime"
+  correct: "B"
+  explanation: "Big-O describes the worst-case asymptotic growth rate, showing how time/space scales with input size."
+
+- id: "q-367"
+  concept_slug: "complexity-basics"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the time complexity of accessing an element by index in a Python list?"
+  options:
+    A: "O(n)"
+    B: "O(log n)"
+    C: "O(1)"
+    D: "O(n²)"
+  correct: "C"
+  explanation: "Python lists are backed by arrays; index access is O(1) constant time."
+
+- id: "q-368"
+  concept_slug: "complexity-basics"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the time complexity of the following code?\n```python\nfor i in range(n):\n    for j in range(n):\n        print(i, j)\n```"
+  options:
+    A: "O(n)"
+    B: "O(n log n)"
+    C: "O(n²)"
+    D: "O(2n)"
+  correct: "C"
+  explanation: "Two nested loops each running n times produce n×n = n² operations → O(n²)."
+
+- id: "q-369"
+  concept_slug: "complexity-basics"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "Which data structure provides O(1) average-case lookup by key?"
+  options:
+    A: "List"
+    B: "Sorted list"
+    C: "Dictionary (hash table)"
+    D: "Tuple"
+  correct: "C"
+  explanation: "Python dicts are hash tables; key lookup is O(1) on average due to hashing."
+
+- id: "q-370"
+  concept_slug: "complexity-basics"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the space complexity of creating a list of n elements?"
+  options:
+    A: "O(1)"
+    B: "O(log n)"
+    C: "O(n)"
+    D: "O(n²)"
+  correct: "C"
+  explanation: "Storing n elements requires memory proportional to n → O(n) space."
+
+# ── linear-search (q-371 to q-375) ───────────────────────────────────────────
+- id: "q-371"
+  concept_slug: "linear-search"
+  type: "multiple_choice"
+  difficulty: 0.25
+  discrimination: 0.55
+  stem: "What is the time complexity of linear search in the worst case?"
+  options:
+    A: "O(1)"
+    B: "O(log n)"
+    C: "O(n)"
+    D: "O(n²)"
+  correct: "C"
+  explanation: "Linear search checks each element sequentially; in the worst case it examines all n elements."
+
+- id: "q-372"
+  concept_slug: "linear-search"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "When is linear search preferred over binary search?"
+  options:
+    A: "When the data is sorted"
+    B: "When the list is large"
+    C: "When the data is unsorted or the list is small"
+    D: "Never — binary search is always better"
+  correct: "C"
+  explanation: "Linear search works on unsorted data. For small lists, its simplicity outweighs binary search's overhead."
+
+- id: "q-373"
+  concept_slug: "linear-search"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does the following function return?\n```python\ndef linear_search(lst, target):\n    for i, v in enumerate(lst):\n        if v == target:\n            return i\n    return -1\n\nprint(linear_search([4, 2, 7, 1], 7))\n```"
+  options:
+    A: "-1"
+    B: "7"
+    C: "2"
+    D: "3"
+  correct: "C"
+  explanation: "7 is at index 2 in the list [4, 2, 7, 1]."
+
+- id: "q-374"
+  concept_slug: "linear-search"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is returned by linear_search([4, 2, 7], 99) using the function above?"
+  options:
+    A: "None"
+    B: "False"
+    C: "-1"
+    D: "IndexError"
+  correct: "C"
+  explanation: "When the target is not found the function returns -1 as the sentinel value."
+
+- id: "q-375"
+  concept_slug: "linear-search"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the best-case time complexity of linear search?"
+  options:
+    A: "O(n)"
+    B: "O(log n)"
+    C: "O(n²)"
+    D: "O(1)"
+  correct: "D"
+  explanation: "Best case: the target is the first element, found in one comparison → O(1)."
+
+# ── binary-search (q-376 to q-380) ───────────────────────────────────────────
+- id: "q-376"
+  concept_slug: "binary-search"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is a prerequisite for binary search?"
+  options:
+    A: "The list must be non-empty"
+    B: "The list must be sorted"
+    C: "The list must contain unique elements"
+    D: "The list must have an even number of elements"
+  correct: "B"
+  explanation: "Binary search relies on the sorted order to eliminate half the search space at each step."
+
+- id: "q-377"
+  concept_slug: "binary-search"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the time complexity of binary search?"
+  options:
+    A: "O(n)"
+    B: "O(n²)"
+    C: "O(log n)"
+    D: "O(1)"
+  correct: "C"
+  explanation: "Binary search halves the search space each step; the number of steps is log₂(n) → O(log n)."
+
+- id: "q-378"
+  concept_slug: "binary-search"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "In a binary search on [1,3,5,7,9,11], what is the first mid index checked (0-based, len=6)?"
+  options:
+    A: "0"
+    B: "2"
+    C: "3"
+    D: "5"
+  correct: "C"
+  explanation: "mid = (0 + 5) // 2 = 2 in some implementations, but (lo + hi) // 2 = (0+5)//2 = 2. Actually the standard is (0+5)//2=2 for 0-based with high=5. Many textbooks use len//2=3. The common convention mid=(lo+hi)//2 where lo=0,hi=5 gives 2. Let's use the more common textbook: mid = (0+5)//2 = 2."
+  explanation: "With lo=0 and hi=5, mid = (0+5)//2 = 2. The element at index 2 is 5."
+
+- id: "q-379"
+  concept_slug: "binary-search"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What does Python's bisect module provide?"
+  options:
+    A: "Sorting algorithms"
+    B: "Binary search functions for maintaining sorted lists"
+    C: "Regular expression matching"
+    D: "File I/O utilities"
+  correct: "B"
+  explanation: "The bisect module provides bisect_left, bisect_right, and insort for binary search and sorted insertion."
+
+- id: "q-380"
+  concept_slug: "binary-search"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "How many comparisons does binary search need in the worst case for n=1024?"
+  options:
+    A: "1024"
+    B: "512"
+    C: "10"
+    D: "32"
+  correct: "C"
+  explanation: "log₂(1024) = 10. Binary search makes at most 10 comparisons for a list of 1024 elements."
+
+# ── bubble-sort (q-381 to q-385) ─────────────────────────────────────────────
+- id: "q-381"
+  concept_slug: "bubble-sort"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the time complexity of bubble sort in the worst case?"
+  options:
+    A: "O(n)"
+    B: "O(n log n)"
+    C: "O(n²)"
+    D: "O(log n)"
+  correct: "C"
+  explanation: "Bubble sort uses two nested loops (each O(n)) → worst-case O(n²)."
+
+- id: "q-382"
+  concept_slug: "bubble-sort"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is the best-case time complexity of optimized bubble sort (with early exit)?"
+  options:
+    A: "O(n²)"
+    B: "O(n log n)"
+    C: "O(n)"
+    D: "O(1)"
+  correct: "C"
+  explanation: "With a swapped flag, an already-sorted list requires only one pass with no swaps → O(n) best case."
+
+- id: "q-383"
+  concept_slug: "bubble-sort"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "After one full pass of bubble sort on [5, 3, 1, 4], what is the array?"
+  options:
+    A: "[1, 3, 4, 5]"
+    B: "[3, 1, 4, 5]"
+    C: "[3, 5, 1, 4]"
+    D: "[5, 3, 1, 4]"
+  correct: "B"
+  explanation: "Pass 1: (5,3)→swap→[3,5,1,4]; (5,1)→swap→[3,1,5,4]; (5,4)→swap→[3,1,4,5]. Result: [3,1,4,5]."
+
+- id: "q-384"
+  concept_slug: "bubble-sort"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the space complexity of bubble sort?"
+  options:
+    A: "O(n)"
+    B: "O(log n)"
+    C: "O(n²)"
+    D: "O(1)"
+  correct: "D"
+  explanation: "Bubble sort sorts in-place using only a constant amount of extra memory → O(1) space."
+
+- id: "q-385"
+  concept_slug: "bubble-sort"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "Bubble sort is described as a 'stable' sort. What does stable mean?"
+  options:
+    A: "It never crashes"
+    B: "Equal elements maintain their relative original order"
+    C: "It always runs in O(n log n)"
+    D: "It uses no extra memory"
+  correct: "B"
+  explanation: "A stable sort preserves the relative order of equal elements from the original sequence."
+
+# ── selection-sort (q-386 to q-390) ──────────────────────────────────────────
+- id: "q-386"
+  concept_slug: "selection-sort"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the time complexity of selection sort in all cases?"
+  options:
+    A: "O(n)"
+    B: "O(n log n)"
+    C: "O(n²)"
+    D: "O(log n)"
+  correct: "C"
+  explanation: "Selection sort always makes O(n²) comparisons regardless of input order."
+
+- id: "q-387"
+  concept_slug: "selection-sort"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does selection sort do in each pass?"
+  options:
+    A: "Swaps adjacent out-of-order elements"
+    B: "Finds the minimum unsorted element and places it at the front of the unsorted section"
+    C: "Inserts each element into its correct position"
+    D: "Divides the array in half recursively"
+  correct: "B"
+  explanation: "Each pass selects the minimum from the unsorted portion and swaps it to the beginning of that portion."
+
+- id: "q-388"
+  concept_slug: "selection-sort"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "After the first pass of selection sort on [64, 25, 12, 22], what is the array?"
+  options:
+    A: "[25, 64, 12, 22]"
+    B: "[12, 25, 64, 22]"
+    C: "[12, 64, 25, 22]"
+    D: "[64, 25, 12, 22]"
+  correct: "C"
+  explanation: "Min is 12 (index 2). Swap 64 and 12 → [12, 25, 64, 22]. The sorted portion is [12]."
+
+- id: "q-389"
+  concept_slug: "selection-sort"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "How many swaps does selection sort perform on a list of n elements?"
+  options:
+    A: "O(n²)"
+    B: "O(n)"
+    C: "O(log n)"
+    D: "O(1)"
+  correct: "B"
+  explanation: "Selection sort performs exactly n-1 swaps (at most one per pass) → O(n) swaps, even though comparisons are O(n²)."
+
+- id: "q-390"
+  concept_slug: "selection-sort"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "Is selection sort stable?"
+  options:
+    A: "Yes, always"
+    B: "No, the swap can change the relative order of equal elements"
+    C: "Only for integers"
+    D: "Only when the input is nearly sorted"
+  correct: "B"
+  explanation: "Selection sort is NOT stable; the swap of the minimum to the front can jump over equal elements, changing their order."
+
+# ── insertion-sort (q-391 to q-395) ──────────────────────────────────────────
+- id: "q-391"
+  concept_slug: "insertion-sort"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is the best-case time complexity of insertion sort?"
+  options:
+    A: "O(n²)"
+    B: "O(n log n)"
+    C: "O(n)"
+    D: "O(1)"
+  correct: "C"
+  explanation: "On an already-sorted list, each element requires 0 shifts → only n-1 comparisons → O(n)."
+
+- id: "q-392"
+  concept_slug: "insertion-sort"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What does insertion sort do with each element?"
+  options:
+    A: "Swaps it with its left neighbor until sorted"
+    B: "Inserts it into its correct position among the already-sorted elements to its left"
+    C: "Finds the global minimum and places it first"
+    D: "Partitions the array around a pivot"
+  correct: "B"
+  explanation: "Insertion sort maintains a sorted prefix and inserts each new element into the correct position within it."
+
+- id: "q-393"
+  concept_slug: "insertion-sort"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "After processing index 2 of [4, 3, 1, 2] in insertion sort, what does the array look like?"
+  options:
+    A: "[1, 3, 4, 2]"
+    B: "[1, 4, 3, 2]"
+    C: "[3, 4, 1, 2]"
+    D: "[1, 2, 3, 4]"
+  correct: "A"
+  explanation: "Start with [4]. Insert 3 → [3,4]. Insert 1 → [1,3,4,2]. The first three positions are sorted: [1,3,4]."
+
+- id: "q-394"
+  concept_slug: "insertion-sort"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "Is insertion sort stable?"
+  options:
+    A: "No"
+    B: "Yes, equal elements are not swapped past each other"
+    C: "Only for small inputs"
+    D: "Only for reverse-sorted inputs"
+  correct: "B"
+  explanation: "Insertion sort is stable because it only shifts elements that are strictly greater, preserving the order of equals."
+
+- id: "q-395"
+  concept_slug: "insertion-sort"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "In practice, insertion sort is often preferred over merge sort for:"
+  options:
+    A: "Large random datasets"
+    B: "Small or nearly-sorted arrays where its O(n) best case shines"
+    C: "Linked lists with millions of nodes"
+    D: "Parallel computing scenarios"
+  correct: "B"
+  explanation: "Insertion sort's O(n) best case and low overhead make it fast in practice for small or nearly-sorted arrays."
+
+# ── recursion-algorithms (q-396 to q-400) ────────────────────────────────────
+- id: "q-396"
+  concept_slug: "recursion-algorithms"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What does the following recursive function compute?\n```python\ndef f(n):\n    if n == 0: return 0\n    return n + f(n - 1)\n```"
+  options:
+    A: "n!"
+    B: "2^n"
+    C: "1+2+...+n"
+    D: "Fibonacci(n)"
+  correct: "C"
+  explanation: "f(n) = n + f(n-1) = n + (n-1) + ... + 1 + 0, which is the sum of integers 1 to n."
+
+- id: "q-397"
+  concept_slug: "recursion-algorithms"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the time complexity of merge sort?"
+  options:
+    A: "O(n²)"
+    B: "O(n)"
+    C: "O(n log n)"
+    D: "O(log n)"
+  correct: "C"
+  explanation: "Merge sort divides the array in O(log n) levels and merges O(n) elements per level → O(n log n)."
+
+- id: "q-398"
+  concept_slug: "recursion-algorithms"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is tail recursion?"
+  options:
+    A: "Recursion with more than one base case"
+    B: "A recursive call that is the last action in the function"
+    C: "Recursion that uses a helper function"
+    D: "A recursive call at the beginning of the function"
+  correct: "B"
+  explanation: "In tail recursion the recursive call is the final operation, allowing some languages to optimize it into iteration (CPython does not)."
+
+- id: "q-399"
+  concept_slug: "recursion-algorithms"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is the time complexity of naive recursive Fibonacci (no memoization)?"
+  options:
+    A: "O(n)"
+    B: "O(n log n)"
+    C: "O(2^n)"
+    D: "O(n²)"
+  correct: "C"
+  explanation: "Without memoization, the recursion tree has exponential branches because subproblems are recomputed → O(2^n)."
+
+- id: "q-400"
+  concept_slug: "recursion-algorithms"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What is the depth of the recursion stack for factorial(1000) in CPython?"
+  options:
+    A: "10"
+    B: "1000"
+    C: "RecursionError before reaching 1000"
+    D: "It is converted to iteration automatically"
+  correct: "C"
+  explanation: "CPython's default recursion limit is 1000; factorial(1000) requires 1001 frames, hitting RecursionError."
+
+# ── two-pointer (q-401 to q-405) ────────────────────────────────────────────
+- id: "q-401"
+  concept_slug: "two-pointer"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "The two-pointer technique is most useful for:"
+  options:
+    A: "Searching unsorted data"
+    B: "Problems on sorted arrays where two indices converge from opposite ends"
+    C: "Hashing"
+    D: "Graph traversal"
+  correct: "B"
+  explanation: "Two pointers on a sorted array allow O(n) solutions to problems like pair sum, removing duplicates, and palindrome checks."
+
+- id: "q-402"
+  concept_slug: "two-pointer"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the time complexity of finding a pair with target sum in a sorted array using two pointers?"
+  options:
+    A: "O(n²)"
+    B: "O(n log n)"
+    C: "O(n)"
+    D: "O(log n)"
+  correct: "C"
+  explanation: "Two pointers traverse the array at most once; each pointer moves at most n steps total → O(n)."
+
+- id: "q-403"
+  concept_slug: "two-pointer"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "In the two-sum two-pointer approach on a sorted array, when arr[left]+arr[right] > target, what do you do?"
+  options:
+    A: "Increment left"
+    B: "Decrement right"
+    C: "Swap left and right"
+    D: "Return False"
+  correct: "B"
+  explanation: "The sum is too large; decrement right to reduce it."
+
+- id: "q-404"
+  concept_slug: "two-pointer"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "Which of the following problems is classically solved with two pointers?"
+  options:
+    A: "Shortest path in a graph"
+    B: "Reversing a string in-place"
+    C: "Counting inversions in a list"
+    D: "Computing a Fibonacci number"
+  correct: "B"
+  explanation: "Reversing a string uses left and right pointers converging inward, swapping characters → O(n) in-place."
+
+- id: "q-405"
+  concept_slug: "two-pointer"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What is the two-pointer approach to check if a string is a palindrome?"
+  options:
+    A: "Compare s to s[::-1] in O(n)"
+    B: "Use left=0, right=len-1; advance both while s[left]==s[right]; return True if they cross"
+    C: "Sort the characters and check for uniqueness"
+    D: "Count character frequencies"
+  correct: "B"
+  explanation: "Two pointers from both ends compare characters inward; if any mismatch, it's not a palindrome."
+
+# ── sliding-window (q-406 to q-410) ─────────────────────────────────────────
+- id: "q-406"
+  concept_slug: "sliding-window"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "The sliding window technique is best suited for:"
+  options:
+    A: "Sorting problems"
+    B: "Problems involving contiguous subarrays or substrings"
+    C: "Graph problems"
+    D: "Recursive problems only"
+  correct: "B"
+  explanation: "Sliding window efficiently processes contiguous subarrays/substrings by maintaining a window that moves through the data."
+
+- id: "q-407"
+  concept_slug: "sliding-window"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the time complexity of finding the maximum sum subarray of size k using sliding window?"
+  options:
+    A: "O(n*k)"
+    B: "O(n²)"
+    C: "O(n)"
+    D: "O(k)"
+  correct: "C"
+  explanation: "Sliding window computes the sum for the first window, then slides by subtracting the leaving element and adding the entering one → O(n)."
+
+- id: "q-408"
+  concept_slug: "sliding-window"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "In a fixed-size sliding window of size k over an array of size n, how many windows are there?"
+  options:
+    A: "k"
+    B: "n"
+    C: "n - k + 1"
+    D: "n * k"
+  correct: "C"
+  explanation: "The window starts at index 0 and ends at n-k; that's n-k+1 possible starting positions."
+
+- id: "q-409"
+  concept_slug: "sliding-window"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What characterizes a 'variable-size' sliding window?"
+  options:
+    A: "The window size is fixed before the loop"
+    B: "The window expands by moving right pointer and shrinks by moving left pointer based on a condition"
+    C: "It requires sorting the array first"
+    D: "It uses two separate loops"
+  correct: "B"
+  explanation: "Variable-size windows dynamically adjust: expand right to explore, shrink left to maintain a constraint."
+
+- id: "q-410"
+  concept_slug: "sliding-window"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "Which problem is a classic sliding window example?"
+  options:
+    A: "Binary search"
+    B: "Longest substring without repeating characters"
+    C: "Merge sort"
+    D: "Dijkstra's shortest path"
+  correct: "B"
+  explanation: "Longest substring without repeating characters uses a variable window tracked with a set/dict → O(n)."
+
+# ── generators (q-411 to q-415) ──────────────────────────────────────────────
+- id: "q-411"
+  concept_slug: "generators"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What keyword turns a function into a generator?"
+  options:
+    A: "return"
+    B: "yield"
+    C: "async"
+    D: "generate"
+  correct: "B"
+  explanation: "Any function containing 'yield' becomes a generator function; calling it returns a generator object."
+
+- id: "q-412"
+  concept_slug: "generators"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is the main advantage of a generator over returning a list?"
+  options:
+    A: "Generators are faster for random access"
+    B: "Generators are lazy: they produce values one at a time, using O(1) memory"
+    C: "Generators can be indexed like lists"
+    D: "Generators support sorting"
+  correct: "B"
+  explanation: "Generators compute values on demand; this is memory-efficient for large or infinite sequences."
+
+- id: "q-413"
+  concept_slug: "generators"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is printed?\n```python\ndef counter(n):\n    for i in range(n):\n        yield i\n\ng = counter(3)\nprint(next(g))\nprint(next(g))\n```"
+  options:
+    A: "0\n0"
+    B: "0\n1"
+    C: "1\n2"
+    D: "StopIteration"
+  correct: "B"
+  explanation: "Each next() resumes the generator from where it paused. First yields 0, second yields 1."
+
+- id: "q-414"
+  concept_slug: "generators"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What happens when a generator is exhausted and next() is called again?"
+  options:
+    A: "It restarts from the beginning"
+    B: "It returns None"
+    C: "It raises StopIteration"
+    D: "It raises RuntimeError"
+  correct: "C"
+  explanation: "When a generator function returns (falls off the end), subsequent next() calls raise StopIteration."
+
+- id: "q-415"
+  concept_slug: "generators"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What is a generator expression?"
+  options:
+    A: "A list comprehension wrapped in list()"
+    B: "A lazy generator created with () instead of [] like (x*2 for x in range(5))"
+    C: "A function that uses return instead of yield"
+    D: "A decorator that makes a function lazy"
+  correct: "B"
+  explanation: "Generator expressions use () syntax and produce values lazily, unlike list comprehensions which build the whole list."
+
+# ── decorators (q-416 to q-420) ──────────────────────────────────────────────
+- id: "q-416"
+  concept_slug: "decorators"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What does the @decorator syntax do?\n```python\n@my_decorator\ndef f():\n    pass\n```"
+  options:
+    A: "It is equivalent to f = my_decorator(f)"
+    B: "It calls f with my_decorator as an argument"
+    C: "It is a comment"
+    D: "It is equivalent to f.my_decorator()"
+  correct: "A"
+  explanation: "@my_decorator is syntactic sugar for f = my_decorator(f): the decorator receives the function and returns a replacement."
+
+- id: "q-417"
+  concept_slug: "decorators"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What is printed?\n```python\ndef double(fn):\n    def wrapper(*a, **kw):\n        return fn(*a, **kw) * 2\n    return wrapper\n\n@double\ndef five():\n    return 5\n\nprint(five())\n```"
+  options:
+    A: "5"
+    B: "10"
+    C: "TypeError"
+    D: "None"
+  correct: "B"
+  explanation: "double wraps five so that its return value is multiplied by 2: 5 * 2 = 10."
+
+- id: "q-418"
+  concept_slug: "decorators"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "Why should a decorator use functools.wraps(fn)?"
+  options:
+    A: "To make the decorator run faster"
+    B: "To preserve the original function's __name__, __doc__, etc. on the wrapper"
+    C: "To allow the decorator to accept arguments"
+    D: "To make the wrapper class-based"
+  correct: "B"
+  explanation: "Without functools.wraps, the wrapper replaces the original function's metadata (__name__, __doc__) with its own."
+
+- id: "q-419"
+  concept_slug: "decorators"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What is a decorator factory (a decorator that takes arguments)?"
+  options:
+    A: "A decorator that only works with class methods"
+    B: "A function that returns a decorator"
+    C: "A built-in Python feature"
+    D: "A decorator applied with two @ signs"
+  correct: "B"
+  explanation: "A decorator factory is a callable that takes arguments and returns the actual decorator: @repeat(3) calls repeat(3) first to get the decorator."
+
+- id: "q-420"
+  concept_slug: "decorators"
+  type: "multiple_choice"
+  difficulty: 0.6
+  discrimination: 0.75
+  stem: "What is the output?\n```python\ndef tag(fn):\n    def wrap():\n        return '<b>' + fn() + '</b>'\n    return wrap\n\n@tag\ndef text():\n    return 'hello'\n\nprint(text())\n```"
+  options:
+    A: "hello"
+    B: "<b>hello</b>"
+    C: "TypeError"
+    D: "<b></b>"
+  correct: "B"
+  explanation: "tag wraps text so its return value is surrounded by HTML bold tags."
+
+# ── modules-packages (q-421 to q-425) ───────────────────────────────────────
+- id: "q-421"
+  concept_slug: "modules-packages"
+  type: "multiple_choice"
+  difficulty: 0.3
+  discrimination: 0.6
+  stem: "What is a Python module?"
+  options:
+    A: "A compiled C extension"
+    B: "A single .py file containing Python code that can be imported"
+    C: "A directory of packages"
+    D: "A virtual environment"
+  correct: "B"
+  explanation: "A module is any .py file. Its top-level names become the module's attributes when imported."
+
+- id: "q-422"
+  concept_slug: "modules-packages"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "What is a Python package?"
+  options:
+    A: "A single Python file"
+    B: "A directory containing an __init__.py file (and submodules)"
+    C: "A pip-installable library"
+    D: "A compiled .pyc file"
+  correct: "B"
+  explanation: "A package is a directory with an __init__.py that marks it as a Python package, allowing sub-module imports."
+
+- id: "q-423"
+  concept_slug: "modules-packages"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What is the difference between 'import math' and 'from math import sqrt'?"
+  options:
+    A: "They are identical"
+    B: "'import math' binds the module; 'from math import sqrt' binds only sqrt into the current namespace"
+    C: "'from math import sqrt' imports the whole module"
+    D: "'import math' is deprecated"
+  correct: "B"
+  explanation: "'import math' gives access as math.sqrt; 'from math import sqrt' makes sqrt directly available."
+
+- id: "q-424"
+  concept_slug: "modules-packages"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What does if __name__ == '__main__': guard against?"
+  options:
+    A: "Infinite recursion"
+    B: "Running the module's script code when it is imported as a module (not run directly)"
+    C: "Name collisions with built-ins"
+    D: "Circular imports"
+  correct: "B"
+  explanation: "__name__ is '__main__' only when the script is run directly; this guard prevents execution when the file is imported."
+
+- id: "q-425"
+  concept_slug: "modules-packages"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "What is a relative import?"
+  options:
+    A: "Importing from the standard library"
+    B: "Importing using a dot-prefixed path relative to the current package (e.g., from . import utils)"
+    C: "Importing using an absolute path"
+    D: "Importing from a parent directory using sys.path"
+  correct: "B"
+  explanation: "Relative imports use leading dots to indicate the current package; 'from . import x' imports x from the same package."
+
+# ── standard-library (q-426 to q-430) ───────────────────────────────────────
+- id: "q-426"
+  concept_slug: "standard-library"
+  type: "multiple_choice"
+  difficulty: 0.35
+  discrimination: 0.65
+  stem: "Which standard library module provides date and time utilities?"
+  options:
+    A: "time_utils"
+    B: "calendar"
+    C: "datetime"
+    D: "clock"
+  correct: "C"
+  explanation: "The datetime module provides date, time, datetime, and timedelta classes for date and time manipulation."
+
+- id: "q-427"
+  concept_slug: "standard-library"
+  type: "multiple_choice"
+  difficulty: 0.4
+  discrimination: 0.68
+  stem: "What does the collections.defaultdict do differently from a regular dict?"
+  options:
+    A: "It orders keys alphabetically"
+    B: "It provides a default value factory for missing keys instead of raising KeyError"
+    C: "It is immutable"
+    D: "It stores only integers"
+  correct: "B"
+  explanation: "defaultdict(list) automatically inserts an empty list for missing keys; no KeyError is raised."
+
+- id: "q-428"
+  concept_slug: "standard-library"
+  type: "multiple_choice"
+  difficulty: 0.45
+  discrimination: 0.70
+  stem: "What does itertools.chain([1,2], [3,4]) produce?"
+  options:
+    A: "[[1,2],[3,4]]"
+    B: "[1,2,3,4] as a lazy iterator"
+    C: "TypeError"
+    D: "(1,2,3,4)"
+  correct: "B"
+  explanation: "itertools.chain() lazily chains multiple iterables into one sequential iterator."
+
+- id: "q-429"
+  concept_slug: "standard-library"
+  type: "multiple_choice"
+  difficulty: 0.5
+  discrimination: 0.72
+  stem: "Which module provides the Counter class for counting hashable objects?"
+  options:
+    A: "itertools"
+    B: "statistics"
+    C: "collections"
+    D: "functools"
+  correct: "C"
+  explanation: "collections.Counter is a dict subclass that tallies element frequencies."
+
+- id: "q-430"
+  concept_slug: "standard-library"
+  type: "multiple_choice"
+  difficulty: 0.55
+  discrimination: 0.73
+  stem: "What does functools.lru_cache do?"
+  options:
+    A: "Logs function calls to a file"
+    B: "Caches the results of a function call keyed by its arguments, speeding up repeated calls"
+    C: "Limits the number of times a function can be called"
+    D: "Makes a function run asynchronously"
+  correct: "B"
+  explanation: "lru_cache memoizes function results; subsequent calls with the same arguments return the cached value instantly."

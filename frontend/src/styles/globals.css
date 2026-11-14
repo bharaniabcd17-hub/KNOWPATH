@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #FAFAFA;
+  --color-fg: #0F172A;
+  --color-accent: #4F46E5;
+  --color-evidence-self: #6B7280;
+  --color-evidence-ai: #D97706;
+  --color-evidence-verified: #059669;
+
+  --background: 0 0% 98%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 243.4 75.4% 58.6%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 243.4 75.4% 58.6%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --color-bg: #0A0A0A;
+  --color-fg: #F8FAFC;
+  --color-accent: #4F46E5;
+  --color-evidence-self: #6B7280;
+  --color-evidence-ai: #D97706;
+  --color-evidence-verified: #059669;
+
+  --background: 0 0% 4%;
+  --foreground: 210 40% 98%;
+  --card: 0 0% 6%;
+  --card-foreground: 210 40% 98%;
+  --popover: 0 0% 6%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 243.4 75.4% 58.6%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 243.4 75.4% 58.6%;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+code, pre, kbd {
+  font-family: 'JetBrains Mono', monospace;
+}

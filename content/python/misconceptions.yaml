@@ -1,0 +1,169 @@
+- id: "misc-001"
+  concept_slug: "variables-basics"
+  title: "Variables store values, not references"
+  explanation: "In Python, variables are labels/references to objects, not containers. When you do x = [1,2,3] and y = x, both point to the same list."
+
+- id: "misc-002"
+  concept_slug: "booleans"
+  title: "Truthy/Falsy confusion"
+  explanation: "Many values are falsy in Python: 0, 0.0, '', [], {}, set(), and None all evaluate to False in a boolean context. This surprises beginners who expect only False itself to be falsy."
+
+- id: "misc-003"
+  concept_slug: "type-conversion"
+  title: "Integer division always returns int"
+  explanation: "In Python 3, the / operator always returns a float even if both operands are integers (e.g., 4 / 2 == 2.0). Use // for integer (floor) division."
+
+- id: "misc-004"
+  concept_slug: "strings-basics"
+  title: "Strings are mutable"
+  explanation: "Python strings are immutable. Operations like replace() or upper() do not modify the original string; they return a new string object."
+
+- id: "misc-005"
+  concept_slug: "none-type"
+  title: "None equals False"
+  explanation: "None and False are distinct objects. 'None == False' evaluates to False. Both are falsy, meaning they evaluate to False in boolean context, but they are not equal."
+
+- id: "misc-006"
+  concept_slug: "comparison-operators"
+  title: "= is the same as =="
+  explanation: "= is the assignment operator and sets a variable to a value. == is the equality operator and compares two values, returning True or False."
+
+- id: "misc-007"
+  concept_slug: "arithmetic-operators"
+  title: "// does division then rounds to nearest integer"
+  explanation: "The // operator performs floor division, rounding toward negative infinity, not toward zero. For example, -7 // 2 == -4, not -3."
+
+- id: "misc-008"
+  concept_slug: "logical-operators"
+  title: "and/or always return True or False"
+  explanation: "'and' returns the first falsy operand or the last operand if all are truthy. 'or' returns the first truthy operand or the last if all are falsy. Neither necessarily returns a boolean."
+
+- id: "misc-009"
+  concept_slug: "for-loops"
+  title: "Loop variable is undefined after loop ends"
+  explanation: "Unlike many languages, Python's for loop variable persists in the enclosing scope after the loop finishes. After 'for i in range(5): pass', i is still accessible and equals 4."
+
+- id: "misc-010"
+  concept_slug: "for-loops"
+  title: "Modifying a list while iterating is safe"
+  explanation: "Adding or removing elements from a list while iterating over it with a for loop causes unexpected behavior—items can be skipped or visited twice. Iterate over a copy instead."
+
+- id: "misc-011"
+  concept_slug: "while-loops"
+  title: "while loops always run at least once"
+  explanation: "Python has no do-while construct. A while loop checks its condition before the first iteration, so if the condition is False initially, the body never executes."
+
+- id: "misc-012"
+  concept_slug: "functions-basics"
+  title: "print() and return do the same thing"
+  explanation: "print() outputs a value to the console for human viewing. return sends a value back to the caller so it can be used in further computation. A function that only prints returns None."
+
+- id: "misc-013"
+  concept_slug: "default-arguments"
+  title: "Mutable default arguments are reset each call"
+  explanation: "Default argument values are evaluated once at function definition, not on each call. A mutable default like def f(lst=[]): lst.append(1) shares the same list across all calls, accumulating state."
+
+- id: "misc-014"
+  concept_slug: "variable-scope"
+  title: "Variables inside functions are global"
+  explanation: "Python functions create their own local scope. Variables assigned inside a function are local by default and do not affect or create global variables."
+
+- id: "misc-015"
+  concept_slug: "lists-basics"
+  title: "Copying a list with = creates a new list"
+  explanation: "Assignment (y = x) makes y another reference to the same list object. Changes through y also affect x. Use y = x.copy(), y = list(x), or y = x[:] to create a shallow copy."
+
+- id: "misc-016"
+  concept_slug: "list-slicing"
+  title: "Slicing modifies the original list"
+  explanation: "List slicing (e.g., lst[1:3]) returns a new list containing the selected elements. The original list is left unchanged."
+
+- id: "misc-017"
+  concept_slug: "dicts-basics"
+  title: "Dictionary order is not guaranteed"
+  explanation: "Since Python 3.7, dictionaries are guaranteed to maintain insertion order as part of the language specification. Prior to 3.7 this was an implementation detail of CPython 3.6."
+
+- id: "misc-018"
+  concept_slug: "dicts-basics"
+  title: "Using a non-existent key returns None"
+  explanation: "Accessing a dictionary with a missing key (d['missing']) raises a KeyError. Use d.get('missing') to return None (or a default value) instead of raising an error."
+
+- id: "misc-019"
+  concept_slug: "list-comprehensions"
+  title: "List comprehensions leak their variable"
+  explanation: "In Python 3, the loop variable in a list comprehension is scoped to the comprehension and does NOT leak into the surrounding scope, unlike Python 2 where it did."
+
+- id: "misc-020"
+  concept_slug: "classes-basics"
+  title: "Class attributes are the same as instance attributes"
+  explanation: "Class attributes are shared across all instances. Instance attributes are per-object. Assigning to self.attr in a method creates an instance attribute, shadowing the class attribute for that instance only."
+
+- id: "misc-021"
+  concept_slug: "inheritance"
+  title: "super() always calls the parent class method"
+  explanation: "super() follows the Method Resolution Order (MRO), not necessarily the direct parent. In multiple inheritance, it may call a sibling class method before the parent, enabling cooperative multiple inheritance."
+
+- id: "misc-022"
+  concept_slug: "constructors"
+  title: "__init__ creates the object"
+  explanation: "__new__ is called to create (allocate) the object. __init__ is then called to initialize it. In practice __new__ is rarely overridden, but it is __new__ that actually returns the new object."
+
+- id: "misc-023"
+  concept_slug: "try-except"
+  title: "Bare except catches all exceptions safely"
+  explanation: "A bare 'except:' clause catches everything including SystemExit and KeyboardInterrupt, making it impossible to interrupt or exit the program normally. Use 'except Exception:' to catch only regular exceptions."
+
+- id: "misc-024"
+  concept_slug: "try-except"
+  title: "Exception variable persists after the except block"
+  explanation: "In Python 3, the variable bound in an except clause (e.g., 'except ValueError as e') is explicitly deleted at the end of the except block to avoid reference cycles."
+
+- id: "misc-025"
+  concept_slug: "file-reading"
+  title: "Files close automatically without with"
+  explanation: "If you open a file without a with statement, the file may remain open if an exception occurs or if you forget to call close(). The with statement guarantees the file is closed on exit."
+
+- id: "misc-026"
+  concept_slug: "recursion"
+  title: "Recursion is always slower than iteration"
+  explanation: "Recursion is not inherently slower; it depends on the problem and implementation. Some algorithms are more naturally and cleanly expressed recursively. Python does have a default recursion limit (sys.setrecursionlimit) worth noting."
+
+- id: "misc-027"
+  concept_slug: "list-methods"
+  title: "append() and extend() do the same thing"
+  explanation: "append(x) adds x as a single element to the end of the list. extend(iterable) adds each element of the iterable individually. lst.append([1,2]) adds the whole list as one element; lst.extend([1,2]) adds 1 and 2 separately."
+
+- id: "misc-028"
+  concept_slug: "strings-basics"
+  title: "String concatenation with + in a loop is efficient"
+  explanation: "Using + to concatenate strings in a loop creates a new string object each iteration, resulting in O(n²) time complexity. Use ''.join(parts) for linear-time concatenation."
+
+- id: "misc-029"
+  concept_slug: "comparison-operators"
+  title: "is and == are interchangeable"
+  explanation: "== checks whether two objects have equal value. 'is' checks whether they are the exact same object in memory. 'x == y' can be True even when 'x is y' is False (e.g., two separate lists with the same contents)."
+
+- id: "misc-030"
+  concept_slug: "floats"
+  title: "0.1 + 0.2 == 0.3 is True"
+  explanation: "Due to floating-point representation in binary, 0.1 + 0.2 evaluates to 0.30000000000000004, not exactly 0.3. Use math.isclose() or round() when comparing floating-point numbers."
+
+- id: "misc-031"
+  concept_slug: "variable-scope"
+  title: "global keyword is needed to read global variables"
+  explanation: "The global keyword is only required when you want to rebind (assign to) a global variable inside a function. Reading a global variable works without it—Python simply looks up the enclosing scope."
+
+- id: "misc-032"
+  concept_slug: "encapsulation"
+  title: "Double underscore makes attributes truly private"
+  explanation: "Name mangling transforms __attr to _ClassName__attr, making accidental access harder, but it is still accessible. Python has no true access control; the convention is to use a single underscore _attr for 'internal use'."
+
+- id: "misc-033"
+  concept_slug: "type-conversion"
+  title: "int('3.5') works"
+  explanation: "int() cannot convert a float-formatted string like '3.5' directly—it raises a ValueError. You must first convert to float: int(float('3.5')) == 3."
+
+- id: "misc-034"
+  concept_slug: "boolean"
+  title: "True + True == 2 is surprising/wrong"
+  explanation: "In Python, bool is a subclass of int. True == 1 and False == 0, so arithmetic on booleans is valid: True + True == 2 is actually True. This can cause subtle bugs when boolean results are used in numeric contexts."
